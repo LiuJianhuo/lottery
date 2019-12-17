@@ -1,0 +1,93 @@
+<!--index.wxml-->
+<!-- <view class="mask {{showMask ? 'active' : ''}}" catchtouchmove="true"></view>
+<lottery-modal show="{{showWinModal}}" content="恭喜你获得5元快递金" btnName="去领取" bind:okTap="getCoupon">
+</lottery-modal>
+<lottery-modal show="{{showNoWinModal}}" btnName="好的" bind:okTap="closeNoWinModal">
+  <text>很遗憾</text>
+  <text>点击右上角</text>
+  <text>发送给朋友可获取更多抽奖机会</text>
+</lottery-modal> -->
+<image class="content-beijing" src="../../image/content.png"></image>
+<view>
+  <view class="header">
+    <image class="header-img" src="../../image/biaoti.png"></image>
+  </view>
+  <view class="prize-page">
+    <view class="prize-container">
+      <view class="prize-list-wrap">
+        <image class="prize-list__bg_img" src="../../image/choujiangbeijing.png"></image>
+        <image wx:if="{{isBgOne}}" class="prize-list__bg_img" src="../../image/k1.png"></image>
+        <image wx:else class="prize-list__bg_img" src="../../image/k2.png"></image>
+        <view class="prize-list" id="prizeList">
+          <view class="prize-list__mask {{ lotteryEnd ? '' : 'active' }}"></view>
+          <block wx:for="{{prizes}}" wx:key="id">
+            <view class="prize-item-wrap">
+              <view class="prize-item {{activedIndex === index || (index === 4 && lotteryEnd) ? 'active' : ''}}" bindtap="prizeStartTap" data-index="{{index}}">
+                <image class="bg-img" src="../../image/bg.png"></image>
+                <view class="prize-item__ctn">
+                  <block wx:if="{{index === 4}}">
+                    <image class="prize-btn__bg-icon" src="../../image/bg1.png"></image>
+                    <text class="prize-btn__lottery-times">次数:{{lotteryTimes}}次</text>
+                  </block>
+                  <!-- 谢谢参与 -->
+                  <block wx:elif="{{item.amount === 0}}">
+                    <view class="prize-item_txt">谢谢</view>
+                    <view class="prize-item_txt">参与</view>
+                  </block>
+                  <block wx:else>
+                    <image wx:if="{{activedIndex === index}}" class="prize-btn__bg-icon" src="../../image/bg.png"></image>
+                    <!-- <image class="prize-item__icon" src="../../image/bn.png"></image> -->
+                    <image class="prize-item__icon" src="{{ item.img }}"></image>
+                  </block>
+                </view>
+              </view>
+            </view>
+
+          </block>
+
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="more">
+    <text>点击右上角</text>
+    <image class="klg" src="../../image/shiliang.png"></image>
+    <text>发送给朋友可获得更多抽奖机会</text>
+  </view>
+
+  <view class="zj-jl-box">
+    <image class="zj-jl" src="../../image/zj-jl.png"></image>
+  </view>
+
+
+  <view class="cjjlll">
+    <view class="cjjl">
+      <!-- <view class="cccjjj">中奖记录</view> -->
+      <swiper title="中奖记录" class="cjjl2" autoplay="true" interval="1000" vertical display-multiple-items="5" circular="true">
+        <swiper-item>恭喜！ 陈志英用户获得1元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得2元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得3元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得4元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得5元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得6元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得7元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得8元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得9元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得10元快递金</swiper-item>
+        <swiper-item>恭喜！ 陈志英用户获得11元快递金</swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <view class="description">
+    <view class="Raffle">
+      <image class="cj-sm-img" src="../../image/cj-sm.png"></image>
+    </view>
+    <view class="Introduction">
+      <text class="hhhh">1、每位用户每天有一次抽奖机会。</text>
+      <text class="hhhh">2、每分享给一位好友并进入到抽奖页面，则分享者多获得一次抽奖机会。</text>
+      <text class="hhhh">3、抽中的快递金券请在“我的快递金”页面查看。快递金劵自抽中日期起7日内有效，过期自动失效，不退不补。</text>
+      <text class="hhhh">4、快递金券仅限线下寄中通快递时使用，由快递员使用蜜蜂嗡嗡APP进行核销。</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/index/modal/index.wxml-->
+<view class="modal {{show ? 'show' : ''}}">
+  <view class="modal__content">
+    <slot></slot>
+    {{content}}
+  </view>
+  <view class="modal__btn-wrap" bindtap="okTap">
+    <view class="modal__btn">{{btnName}}</view>
+  </view>
+</view>

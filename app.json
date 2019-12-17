@@ -1,30 +1,33 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "tabBar": {
-    "color": "#6B6B6B",
-    "selectedColor": "#FF2453",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "快递金抽奖",
-      "iconPath": "image/qwer.png",
-      "selectedIconPath": "image/qwerw.png"
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+		"pages/my-prize/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "我的快递金",
+        "navigationBarTextStyle": "black"
     },
-    {
-      "pagePath": "pages/logs/logs",
-      "text": "我的快递金",
-      "iconPath": "image/qwerq.png",
-      "selectedIconPath": "image/qwerre.png"
-    }]
-  }
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#6B6B6B",
+        "selectedColor": "#FF2453",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "快递金抽奖",
+                "iconPath": "image/qwer.png",
+                "selectedIconPath": "image/qwerw.png"
+            },
+            {
+                "pagePath": "pages/my-prize/index",
+                "text": "我的快递金",
+                "iconPath": "image/qwerq.png",
+                "selectedIconPath": "image/qwerre.png"
+            }
+        ]
+    }
 }

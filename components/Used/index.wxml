@@ -1,0 +1,13 @@
+<!--components/Used/index.wxml-->
+<!-- <text>你已使用</text> -->
+<view class="usedTop">
+	<view wx:for="{{lists}}" wx:key="id">
+    <view class="hhhh">
+      <image class="usedImg" src="{{item.img}}"></image>
+      <text class="usedAmount">￥{{item.amount}}</text>
+      <text class="usedTitle">{{item.title}}</text>
+      <text class="usedDate">使用期限：{{item.date}}</text>
+      <image class="usedImage" src="../../image/used-1.png"></image>
+    </view>
+  </view>
+</view>

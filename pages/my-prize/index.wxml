@@ -1,0 +1,48 @@
+<!--pages/login/index.wxml-->
+
+<!-- 头部部分 -->
+<image class="header-top" src="../../image/juxing.png"></image>
+<view class="header-header">
+	<view class="character-avatar">
+		<!-- <image class="character-img" src="../../image/Oval.png"></image> -->
+		<image class="character-imgs" src="../../image/Mask.png"></image>
+		<text class="character-name">落雪纯白</text>
+		<button class="character-out">退出登录</button>
+	</view>
+	<text class="Rules">使用规则</text>
+</view>
+
+<!-- 三个选择按钮部分 -->
+<view class="daohang">
+	<view class="movie-container">
+	<!-- 导航栏 -->
+	<view class="navbar">
+		<block wx:for="{{navbarTitle}}" wx:key="index">
+		<view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+			<text>{{item}}</text>
+		</view>
+		</block>
+	</view>
+	<view class="movie-container">
+     <!-- 导航栏 -->
+     <view class="navbar">
+       <block wx:for="{{navbarTitle}}" wx:key="index">
+         <view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+           <text>{{item}}</text>
+         </view>
+       </block>
+     </view>
+     <view class="movie-content-wrapper">
+       <swiper class="jkj" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
+         <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
+           <scroll-view class="hgh" scroll-y="{{true}}">
+             <used wx:if="{{navbarActiveIndex === 1}}"></used>
+             <expired wx:elif="{{navbarActiveIndex === 2}}"></expired>
+             <will-used wx:else="{{navbarActiveIndex === 0}}"></will-used>
+           </scroll-view>
+         </swiper-item>
+       </swiper>
+     </view>
+   </view>
+	</view>
+</view>

@@ -1,5 +1,8 @@
 {
   "pages": [
+      "pages/login/index",
+    "pages/login-mobile/index",
+ 
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -14,17 +17,19 @@
   "tabBar": {
     "color": "#6B6B6B",
     "selectedColor": "#FF2453",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "快递金抽奖",
-      "iconPath": "image/qwer.png",
-      "selectedIconPath": "image/qwerw.png"
-    },
-    {
-      "pagePath": "pages/logs/logs",
-      "text": "我的快递金",
-      "iconPath": "image/qwerq.png",
-      "selectedIconPath": "image/qwerre.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "快递金抽奖",
+        "iconPath": "image/qwer.png",
+        "selectedIconPath": "image/qwerw.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的快递金",
+        "iconPath": "image/qwerq.png",
+        "selectedIconPath": "image/qwerre.png"
+      }
+    ]
   }
 }

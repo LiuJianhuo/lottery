@@ -1,0 +1,131 @@
+/* pages/login-mobile/index.wxss */
+button {
+  padding: 0;
+}
+
+.btn-verify:not([size='mini']) {
+  min-height: auto;
+  width: 156rpx;
+}
+
+.login-mobile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form {
+  margin-top: 33rpx;
+}
+
+.section {
+  position: relative;
+  display: block;
+  align-items: center;
+  height: 88rpx;
+  width: 620rpx;
+  margin-bottom: 16rpx;
+}
+
+.section .v-middle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.section .left {
+  left: 0;
+}
+
+.section .right {
+  right: 0;
+}
+
+.section::after {
+  position: absolute;
+  content: ' ';
+  display: block;
+  left: 0rpx;
+  bottom: 1rpx;
+  width: 100%;
+  height: 3rpx;
+  /* opacity: 0; */
+  opacity: .8;
+  background:rgba(229,229,229,1);
+}
+
+.section .section__prefix-icon {
+  display: inline-block;
+  width:27rpx;
+  height:36rpx;
+}
+
+.section__suffix-icon {
+  width:36rpx;
+  height:36rpx;
+}
+
+.section .section__input {
+  /* margin-left: 30rpx; */
+  width: 500rpx;
+  left: 59rpx;
+}
+
+.section .section__input-verify {
+  width: 340rpx;
+}
+
+.section:last-child {
+  margin-bottom: 0rpx; 
+}
+
+.btn-login {
+  width: 580rpx;
+  height: 88rpx;
+  background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
+  border-radius:44rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  margin-top: 222rpx;
+  line-height: 88rpx;
+}
+
+.section .placeholder {
+  font-size:32rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(206,206,206,1);
+  line-height:3rpx;
+  letter-spacing:1rpx;
+}
+
+.btn-verify {
+  background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
+  font-size:24rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  border-radius:44rpx;
+  text-align: center;
+  vertical-align: middle;
+  height: 48rpx;
+  line-height: 48rpx;
+  width: 156rpx;
+}
+
+.countdown {
+  background:linear-gradient(90deg,#c1b9bb 0%,#c1b9bb 100%);
+  border: none;
+  outline: none;
+}
+
+.clear-icon {
+  display: none;
+}
+
+.clear-icon.active {
+  display: block;
+}

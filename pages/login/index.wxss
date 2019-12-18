@@ -1,0 +1,37 @@
+/* pages/login/index.wxss */
+
+.login {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.avatar {
+  margin-top: 198rpx; 
+  width:160rpx;
+  height:160rpx;
+  background:rgba(253,48,105,1);
+  border-radius: 50%;
+}
+
+.login__btn {
+  margin-top: 245rpx; 
+  width:580rpx;
+  background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
+  border-radius:44rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+}
+
+.login__tip {
+  margin-top: 43rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(74,74,74,1);
+  line-height:45rpx;
+}

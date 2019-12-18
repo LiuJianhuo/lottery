@@ -17,7 +17,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx07a37d487b46eb7d",
-	"projectname": "miniprogram-1",
+	"projectname": "lottery",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

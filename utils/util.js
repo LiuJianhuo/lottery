@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const checkMobile = val => {
+  return /^(\d{11})$/.test(val)
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  checkMobile: checkMobile
 }

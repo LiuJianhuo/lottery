@@ -1,0 +1,71 @@
+/* components/Used/index.wxss */
+.usedTop {
+  position: relative;
+	height: 100%;
+  width: 100%;
+  /* background-color: yellow; */
+  padding: 16rpx 28rpx; 
+}
+
+.usedImg {
+  display: block;
+  width: 188rpx;
+  height: 180rpx;
+  float: left;
+}
+
+.usedAmount {
+  display: block;
+  height: 48rpx;
+  font-size:36rpx;
+  font-weight:600;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  color:rgba(255,255,255,1);
+  line-height:48px;
+  position: absolute;
+  top:50rpx;
+  left: 30rpx;
+}
+
+.usedTitle {
+  /* display: block; */
+  width:224rpx;
+  height:32rpx;
+  font-size:32rpx;
+  font-family:PingFang-SC-Medium,PingFang-SC;
+  font-weight:700;
+  color:rgba(0,0,0,1);
+  line-height:32rpx;
+  position: absolute;
+  top:42rpx;
+  left: 254rpx;
+}
+
+.usedDate {
+  width:369rpx;
+  height:22rpx;
+  font-size:22rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height:22rpx;
+  position: absolute;
+  top: 92rpx;
+  left: 254rpx;
+}
+
+.usedImage {
+  display: block;
+  width: 125rpx;
+  height: 138rpx;
+  position: absolute;
+  top:37rpx;
+  right: 28rpx;
+}
+
+.hhhh {
+  position: relative;
+  height: 180rpx;
+  width: 694rpx;
+  margin-bottom: 16rpx;
+}

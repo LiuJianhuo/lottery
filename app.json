@@ -2,7 +2,7 @@
   "pages": [
       "pages/login/index",
     "pages/login-mobile/index",
- 
+    "pages/my-prize/index",
     "pages/index/index",
     "pages/logs/logs"
   ],

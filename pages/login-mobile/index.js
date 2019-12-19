@@ -11,7 +11,7 @@ Page({
     countdown: false,
     showClearBtn: false,
     formData: {
-      mobile: 'ee',
+      mobile: '',
       verifyCode: ''
     }
   },

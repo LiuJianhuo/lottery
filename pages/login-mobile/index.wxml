@@ -13,7 +13,7 @@
       <button class="btn-verify v-middle right countdown" wx:else>{{ time }}秒</button>
     </view>
     <view class="btn-area">
-      <button class="btn-login" formType="submit">登录</button>
+      <button class="login__btn" formType="submit">登录</button>
     </view>
   </form>
 </view>

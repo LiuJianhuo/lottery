@@ -1,5 +1,6 @@
 /* pages/login/index.wxss */
 
+
 .login {
   display: flex;
   text-align: center;
@@ -16,9 +17,14 @@
   border-radius: 50%;
 }
 
-.login__btn {
+
+
+button.login__btn {
+  padding: 0;
   margin-top: 245rpx; 
   width:580rpx;
+  height: 88rpx;
+  line-height: 88rpx;
   background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
   border-radius:44rpx;
   font-size:32rpx;
@@ -26,6 +32,15 @@
   font-weight:400;
   color:rgba(255,255,255,1);
 }
+
+button.login__btn:not([size='mini']) {
+  min-height: 0;
+  width:580rpx;
+  margin-left: 0;
+  margin-right: 0;
+  line-height: 88rpx;
+}
+
 
 .login__tip {
   margin-top: 43rpx;
@@ -35,3 +50,9 @@
   color:rgba(74,74,74,1);
   line-height:45rpx;
 }
+
+.navigator-hover {
+  background-color: rgba(0, 0, 0, 0.0);
+  opacity: 0.7;
+}
+

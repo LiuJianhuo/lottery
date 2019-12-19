@@ -1,0 +1,15 @@
+<!--pages/my-prize/modal/index.wxml-->
+<!-- <text>pages/my-prize/modal/index.wxml</text> -->
+<view class="modal {{show ? 'show' : ''}}">
+  <view class="modal-top">
+    <text class="modal-bt">使用规则</text>
+    <image class="modal-img" src="../../../image/gut.png" bindtap="closeTap"></image>
+  </view>
+  <view class="modal-foot">
+    <text class="modal-txt">1.获得快递金券后，首次使用可在中快嗡嗡小程序进行，再次使用需要下载蜜蜂嗡嗡APP进行使用。(请用同一个手机号进行注册登陆) </text>
+    <text class="modal-txt">2.当中通快递员上门寄件时，展示快递金券二维码，快递员使用蜜蜂嗡嗡APP进行核销，成功后您所需支付的寄件费用会减去相应金额。</text>
+    <text class="modal-txt"> 3.每笔快递订单只可使用一张快递金券。</text>
+    <text class="modal-txt"> 4.快递金券支付后，不可撤销，不退不换。</text>
+    <text class="modal-txt"> 5.所兑换的快递金券会有使用时限，过期后将失效无法使用，不退不补。</text>
+  </view>
+</view>

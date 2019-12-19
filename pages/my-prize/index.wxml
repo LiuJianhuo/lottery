@@ -1,16 +1,31 @@
 <!--pages/login/index.wxml-->
-
+<popup show="{{showPopup}}" bind:close="closePopup"></popup>
+<code show="{{showCode}}" bind:close="closeCode"></code>
+<view class="mask {{showMask ? 'show' : ''}}"></view>
 <!-- 头部部分 -->
 <image class="header-top" src="../../image/juxing.png"></image>
-<view class="header-header">
-	<view class="character-avatar">
-		<!-- <image class="character-img" src="../../image/Oval.png"></image> -->
-		<image class="character-imgs" src="../../image/Mask.png"></image>
-		<text class="character-name">落雪纯白</text>
-		<button class="character-out">退出登录</button>
-	</view>
-	<text class="Rules">使用规则</text>
-</view>
+<block wx:if="{{login}}">
+  <view class="header-header">
+    <view class="character-avatar">
+      <!-- <image class="character-img" src="../../image/Oval.png"></image> -->
+      <image class="character-imgs" src="../../image/Mask.png"></image>
+      <text class="character-name">落雪纯白</text>
+      <button class="character-out" bindtap="getup">退出登录</button>
+    </view>
+    <text class="Rules" bindtap="popup">使用规则</text>
+  </view>
+</block>
+<block wx:else>
+  <view class="header-header">
+    <view class="character-avatar">
+      <!-- <image class="character-img" src="../../image/Oval.png"></image> -->
+      <image class="character-imgs" src="../../image/Mask.png"></image>
+      <text class="character-name">请登录~</text>
+      <button class="character-out" bindtap="getout">点击登录</button>
+    </view>
+    <text class="Rules" bindtap="popup">使用规则</text>
+  </view>
+</block>
 
 <!-- 三个选择按钮部分 -->
 <view class="daohang">
@@ -36,9 +51,9 @@
        <swiper class="jkj" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
          <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
            <scroll-view class="hgh" scroll-y="{{true}}">
-             <used wx:if="{{navbarActiveIndex === 1}}"></used>
-             <expired wx:elif="{{navbarActiveIndex === 2}}"></expired>
-             <will-used wx:else="{{navbarActiveIndex === 0}}"></will-used>
+             <used login="{{login}}" wx:if="{{navbarActiveIndex === 1}}" ></used>
+             <expired login="{{login}}" wx:elif="{{navbarActiveIndex === 2}}"></expired>
+             <will-used login="{{login}}" wx:else="{{navbarActiveIndex === 0}}" bind:showCode='showCode'></will-used>
            </scroll-view>
          </swiper-item>
        </swiper>

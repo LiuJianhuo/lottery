@@ -1,0 +1,15 @@
+<!--components/will-used/modal/index.wxml-->
+<!-- <text>components/will-used/modal/index.wxml</text> -->
+<view class="modal {{show ? 'show' : ''}}">
+  <view class="modal-top">
+    <image class="modal-top-left" src="../../../image/grt1.png"></image>
+    <image class="modal-top-right"  bindtap="closeCode" src="../../../image/grt.png"></image>
+  </view>
+  <view class="modal-foot">
+    <image class="modal-code"></image>
+    <text class="modal-txt">
+      <text>请将此二维码展示给中通</text>
+      <text>快递员使用蜜蜂嗡嗡APP进行扫码核销</text>
+    </text>
+  </view>
+</view>

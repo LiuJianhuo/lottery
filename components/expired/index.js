@@ -3,8 +3,12 @@ Component({
 	/**
 	 * 组件的属性列表
 	 */
-	properties: {
-	},
+  properties: {
+    login: {
+      type: Boolean,
+      value: false
+    }
+  },
 
 	/**
 	 * 组件的初始数据
@@ -20,7 +24,7 @@ Component({
         image: '../../image/used-1.png'
       },
       {
-        id: 1,
+        id: 2,
         amount: '10.00',
         title: "中通快递抵用金",
         date: '2019/09/09-202',
@@ -28,7 +32,7 @@ Component({
         image: '../../image/used-1.png'
       },
       {
-        id: 1,
+        id: 3,
         amount: '10.00',
         title: "中通快递抵用金",
         date: '2019/09/09-202',

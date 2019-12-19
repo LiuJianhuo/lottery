@@ -1,13 +1,25 @@
 <!--components/Used/index.wxml-->
 <!-- <text>你已使用</text> -->
 <view class="usedTop">
-	<view wx:for="{{lists}}" wx:key="id">
-    <view class="hhhh">
-      <image class="usedImg" src="{{item.img}}"></image>
-      <text class="usedAmount">￥{{item.amount}}</text>
-      <text class="usedTitle">{{item.title}}</text>
-      <text class="usedDate">使用期限：{{item.date}}</text>
-      <image class="usedImage" src="../../image/used-1.png"></image>
+  <block wx:if="{{login}}">
+    <view wx:for="{{lists}}" wx:key="id">
+      <view class="hhhh">
+        <image class="usedImg" src="{{item.img}}"></image>
+        <text class="usedAmount">￥{{item.amount}}</text>
+        <text class="usedTitle">{{item.title}}</text>
+        <text class="usedDate">使用期限：{{item.date}}</text>
+        <image class="usedImage" src="../../image/used-1.png"></image>
+      </view>
     </view>
-  </view>
+  </block>
+  <block wx:else>
+    <view class="getout-conent">
+      <view class="getout-top">
+        <image class="getout-img" src="../../image/shopping.png"></image>
+      </view>
+      <view class="getout-bom">
+        <text class="getout-txt">暂未登录~</text>
+      </view>
+    </view>
+  </block>
 </view>

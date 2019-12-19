@@ -1,0 +1,65 @@
+/* pages/my-prize/modal/index.wxss */
+.modal {
+  display: none;
+  width: 560rpx;
+  height: 892rpx;
+  position: fixed;
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-top {
+  width: 560rpx;
+  height: 100rpx;
+  background-color: #FD3069;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-bt {
+  width:128rpx;
+  height:32rpx;
+  font-size:32rpx;
+  font-family:PingFang-SC-Bold,PingFang-SC;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  line-height:32rpx;
+
+}
+
+.modal-img {
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  top: 32rpx;
+  right: 32rpx;
+}
+
+.modal-foot {
+  background-color: #fff;
+  padding-top: 60rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60rpx;
+}
+
+.modal-txt {
+  display: block;
+  width:455rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular,PingFang-SC;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  line-height:48rpx;
+  /* margin: 0rpx 52rpx; */
+  /* margin-bottom: 60rpx; */
+}

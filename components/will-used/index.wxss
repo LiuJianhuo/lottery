@@ -67,3 +67,52 @@
   width: 694rpx;
   margin-bottom: 16rpx;
 }
+
+.mask {
+   position: fixed;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   height: 100%;
+   width: 100%;
+   background:rgba(0,0,0,0.5);
+   z-index: 9999;
+   display: none;
+ }
+
+ .mask.show {
+   display: block;
+ }
+ 
+ /* 未登录状态下 */
+.getout-conent {
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  padding: 140rpx 200rpx;
+}
+
+.getout-top {
+  width: 330rpx;
+  height: 198rpx;
+}
+
+.getout-img {
+  display: block;
+  width: 330rpx;
+  height: 198rpx;
+}
+
+.getout-bom {
+  width:180rpx;
+  height:36rpx;
+  font-size:36rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(74,74,74,1);
+  line-height:36rpx;
+  margin-top: 94rpx;
+  margin-left: 85rpx;
+}

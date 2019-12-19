@@ -8,9 +8,18 @@ App({
     const self = this
  
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    // var logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
+
+
+    wx.request({
+      url: 'http://localhost:8080/logi',
+      success () {
+        console.log()
+      }
+    })
+  
 
     // 登录
     wx.login({

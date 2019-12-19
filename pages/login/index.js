@@ -67,7 +67,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log('分享')
+    return {
+      title: '抽奖',
+      path: '/pages/index/index?token=1111'
+    }
   },
   getPhoneNumber (e) {
     

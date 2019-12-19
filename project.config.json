@@ -24,7 +24,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.8.0",
 	"appid": "wx07a37d487b46eb7d",
 	"projectname": "lottery",
 	"debugOptions": {

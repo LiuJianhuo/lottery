@@ -17,6 +17,9 @@ button {
 
 .login-form {
   margin-top: 33rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section {
@@ -26,6 +29,13 @@ button {
   height: 88rpx;
   width: 620rpx;
   margin-bottom: 16rpx;
+}
+
+.btn-area {
+  width: 620rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section .v-middle {
@@ -80,7 +90,8 @@ button {
   margin-bottom: 0rpx; 
 }
 
-.btn-login {
+button.login__btn {
+  padding: 0;
   width: 580rpx;
   height: 88rpx;
   background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
@@ -90,6 +101,14 @@ button {
   font-weight:400;
   color:rgba(255,255,255,1);
   margin-top: 222rpx;
+  line-height: 88rpx;
+}
+
+button.login__btn:not([size='mini']) {
+  min-height: 0;
+  width:580rpx;
+  margin-left: 0;
+  margin-right: 0;
   line-height: 88rpx;
 }
 

@@ -1,15 +1,58 @@
 //app.js
+const {request} = require('./utils/util.js')
+
 App({
   onLaunch: function () {
+    // 注入request对象
+    this.request = request
+    const self = this
+ 
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    // var logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
+
+
+    wx.request({
+      url: 'http://localhost:8080/logi',
+      success () {
+        console.log()
+      }
+    })
+  
 
     // 登录
     wx.login({
       success: res => {
+        console.log(res.code)
+        wx.setStorageSync('code', res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        request.get({
+          url: '/login',
+          data: {
+            code: res.code,
+            type: 'wx'
+          }
+        }).then(data => {
+          console.log(data)
+          const {token, openid} = data.content
+          self.globalData.token = token
+          self.globalData.openid = openid
+          wx.setStorageSync('token', token)
+          wx.setStorageSync('openid', openid)
+          // 给request请求添加header
+          request.setPostHeader({
+            token
+          })
+          request.post({
+            url: 'eee',
+            data: {
+              token
+            }
+          })
+        }).catch(err => {
+          console.log(err)
+        })
       }
     })
     // 获取用户信息
@@ -32,8 +75,11 @@ App({
         }
       }
     })
+    console.log('app launch end ...')
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    token: null,
+    openid: null
   }
 })

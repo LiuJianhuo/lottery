@@ -11,7 +11,7 @@ Page({
     countdown: false,
     showClearBtn: false,
     formData: {
-      mobile: 'ee',
+      mobile: '',
       verifyCode: ''
     }
   },
@@ -69,7 +69,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log('分享')
+    return {
+      path: '/pages/login?token=1111'
+    }
   },
   formSubmit (e) {
     const {mobile, verifyCode} = e.detail.value

@@ -58,10 +58,10 @@ class Request {
         success(res) {
           // 跟踪记录
           record({ data, method, url, result:res})
-          if (res.data.code === undefined || res.data.code === 0) {
-            resolve(res.data)
+          if (res.data.code === undefined || res.data.code === 200) {
+            resolve(res.data.content)
           } else {
-            resolve(new Error(res.data.errMsg))
+            resolve(new Error(res.data.message))
           }
         },
         fail(err) {

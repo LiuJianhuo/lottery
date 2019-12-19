@@ -78,23 +78,35 @@ Page({
     // 获取号码失败
     if (e.detail.errMsg.indexOf('ok') < 0) {
       wx.showToast({
-        title: '登录失败',
+        title: '手机授权失败',
         icon: 'none'
       })
       return
     }
-    console.log(e.detail)
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
-    console.log(e.detail.errMsg.indexOf('ok') > -1)
-    // app.request.get({
-    //   url: 'mobile',
-    //   data: {
-    //     iv: e.detail.iv,
-    //     encryptedData: e.detail.encryptedData
-    //   }
-    // })
+    console.log(app.globalData.openId)
+    wx.showLoading({
+      title: '授权中',
+      mask: true
+    })
+    app.request.post({
+      url: 'api/user/wechat/mini/lack/draw/mobile.do',
+      data: {
+        iv: e.detail.iv,
+        encryptedData: e.detail.encryptedData,
+        openId: app.globalData.openId
+      }
+    }).then(data => {
+      const {displayName, mobile, openId, step, tbGrant, token} = data
+      console.log(token)
+      wx.setStorageSync('token', token)
+      app.globalData.token = token
+      wx.hideLoading()
+    }).catch(err => {
+      wx.showToast({
+        title: err.errMsg,
+        icon: 'none'
+      })
+    })
     
   },
   getUserInfo (info) {

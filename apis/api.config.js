@@ -1,4 +1,4 @@
 module.exports = {
-  baseUrl: 'http://localhost:8080',
-  debug: true
+  baseUrl: 'http://api.zk020.cn',
+  debug: false
 }

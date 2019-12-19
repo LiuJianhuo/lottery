@@ -11,14 +11,6 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-
-
-    wx.request({
-      url: 'http://localhost:8080/logi',
-      success () {
-        console.log()
-      }
-    })
   
 
     // 登录
@@ -27,29 +19,15 @@ App({
         console.log(res.code)
         wx.setStorageSync('code', res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        request.get({
-          url: '/login',
+        request.post({
+          url: '/api/user/wechat/mini/lack/draw/auth.do',
           data: {
-            code: res.code,
-            type: 'wx'
+            code: res.code
           }
         }).then(data => {
-          console.log(data)
-          const {token, openid} = data.content
-          self.globalData.token = token
-          self.globalData.openid = openid
-          wx.setStorageSync('token', token)
-          wx.setStorageSync('openid', openid)
-          // 给request请求添加header
-          request.setPostHeader({
-            token
-          })
-          request.post({
-            url: 'eee',
-            data: {
-              token
-            }
-          })
+          const openId = data
+          self.globalData.openId = openId
+          wx.setStorageSync('openid', openId)
         }).catch(err => {
           console.log(err)
         })
@@ -80,6 +58,7 @@ App({
   globalData: {
     userInfo: null,
     token: null,
-    openid: null
+    openId: null,
+    token: null
   }
 })

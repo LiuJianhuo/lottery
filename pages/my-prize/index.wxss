@@ -24,7 +24,6 @@
 	height: 116rpx;
 	z-index: -19;
 	position: absolute;
-
 } */
 
 .character-imgs {
@@ -37,14 +36,20 @@
 }
 
 .character-out {
-	width: 136rpx;
-	/* height: 36rpx; */
-	background-color:  #E60031;
-	color: #fff;
-	font-size:20rpx;
-	line-height:36rpx;
-	margin-left: 179rpx;
-	top: 50rpx;
+  width: 136rpx;
+  height: 36rpx;
+  background-color: #E60031;
+  color: #fff;
+  font-size:20rpx;
+  line-height:36rpx;
+  margin-left: 179rpx;
+  position: absolute;
+  top: 110rpx;
+  display: flex; /*设置显示样式**/
+  /* align-items: center; *子view垂直居中 */
+  vertical-align: center; /**垂直居中*/
+  justify-content: center; /**内容居中*/
+  border-radius: 25rpx;
 }
 
 .character-name {

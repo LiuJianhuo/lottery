@@ -1,6 +1,6 @@
 // pages/login-mobile/index.js
 const util = require('../../utils/util.js')
-
+const app = getApp()
 Page({
 
   /**
@@ -13,7 +13,8 @@ Page({
     formData: {
       mobile: '',
       verifyCode: ''
-    }
+    },
+    activedBtn: false
   },
 
   /**
@@ -64,17 +65,10 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    console.log('分享')
-    return {
-      path: '/pages/login?token=1111'
-    }
-  },
   formSubmit (e) {
+    wx.redirectTo({
+      url: '/pages/index/index',
+    })
     const {mobile, verifyCode} = e.detail.value
     if (!util.checkMobile(mobile)) {
       wx.showToast({
@@ -90,6 +84,27 @@ Page({
       })
       return
     }
+    
+    // 手机登录验证
+    app.request.post({
+      url: '/api/user/wechat/mini/lack/draw/login',
+      data: {
+        verifyCode,
+        mobile
+      }
+    }).then(data => {
+      console.log(data)
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }).catch(err => {
+      wx.showToast({
+        title: err.errMsg,
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+    })
   },
   getVerifyCodeTap () { // 获取验证码
     const mobile = this.data.formData.mobile
@@ -120,6 +135,34 @@ Page({
        time: this.data.time - 1
       })
     }, 1000)
+
+    // 请求获取验证码
+    app.request.post({
+      url: '/api/user/send/verifycode',
+      data: {
+        mobile,
+        verifyType: 5
+      }
+    }).then(data => {
+      console.log(data)
+      wx.showToast({
+        title: data,
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+    }).catch(err => {
+      wx.showToast({
+        title: err.errMsg,
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+      clearInterval(timeId)
+      this.setData({
+        countdown: false
+      })
+    })
   },
   // 清空手机输入框的值
   clearMobileInputTap () {
@@ -129,7 +172,8 @@ Page({
     }
     this.setData({
       formData: Object.assign({}, this.data.formData, { mobile: '' }),
-      showClearBtn: false
+      showClearBtn: false,
+      activedBtn: false
     })
     console.log(this.data.formData)
   },
@@ -140,6 +184,19 @@ Page({
     this.setData({
       showClearBtn: val !== '',
       formData: Object.assign({}, this.data.formData, { mobile: val })
+    })
+
+    this.setData({
+      activedBtn: val != '' && this.data.formData.verifyCode != ''
+    })
+  },
+  verifyCodeInput (e) {
+    const val = e.detail.value
+    this.setData({
+      formData: Object.assign({}, this.data.formData, { verifyCode: val })
+    })
+    this.setData({
+      activedBtn: val != '' && this.data.formData.mobile != ''
     })
   }
 })

@@ -94,7 +94,7 @@ button.login__btn {
   padding: 0;
   width: 580rpx;
   height: 88rpx;
-  background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
+  background-color: #B9B9B9;
   border-radius:44rpx;
   font-size:32rpx;
   font-family:PingFangSC-Regular,PingFang SC;
@@ -102,6 +102,10 @@ button.login__btn {
   color:rgba(255,255,255,1);
   margin-top: 222rpx;
   line-height: 88rpx;
+}
+
+button.login__btn.active {
+  background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
 }
 
 button.login__btn:not([size='mini']) {

@@ -12,7 +12,6 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
   
-
     // 登录
     wx.login({
       success: res => {
@@ -60,5 +59,8 @@ App({
     token: null,
     openId: null,
     token: null
+  },
+  getToken () { // 获取token
+    return this.globalData.token ? this.globalData.token : wx.getStorageSync('token')
   }
 })

@@ -27,15 +27,19 @@ class Request {
     this.postHeader = {
       // 'Content-Type': 'application/x-www-form-urlencoded'
     }
+    this.token = wx.getStorageSync('token')
   }
 
   get({ url, data }) {
     return this.request({method: 'GET', url, data})
   }
-  post({ url, data }) {
-    return this.request({method: 'POST', url, data, header: this.postHeader})
+
+  post({ url, data, header }) {
+    header = Object.assign({token: this.token}, this.postHeader, header)
+    return this.request({method: 'POST', url, data, header})
   }
-  request({ method, url, data, header={} }) {
+
+  request({ method, url, data, header={}, needToken=true }) {
     console.log('----------', method, '--------', header)
     const record = ({ url, method, data, result}) => {
       if (this.debug) {
@@ -46,6 +50,16 @@ class Request {
         console.groupEnd()
       }
     }
+    console.log(header)
+    // post请求默认带token
+    if ((method !== 'POST' || !needToken)) {
+      Object.keys(header).find(key => {
+        if (key === 'token') {
+          delete header['token']
+        }
+      })
+    }
+    console.log(header)
     const self = this
     let requestTask = null
     const promise = new Promise(function (resolve, reject) {
@@ -61,7 +75,7 @@ class Request {
           if (res.data.code === undefined || res.data.code === 200) {
             resolve(res.data.content)
           } else {
-            resolve(new Error(res.data.message))
+            reject({errMsg: res.data.message})
           }
         },
         fail(err) {
@@ -77,6 +91,7 @@ class Request {
   setPostHeader(header) {
     if (header && typeof header === 'object') {
       this.postHeader = Object.assign(this.postHeader, header)
+      this.token = header.token ? header.token : this.token
     }
   }
 }

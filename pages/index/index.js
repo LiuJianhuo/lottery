@@ -59,6 +59,7 @@ Page({
         title: '谢谢参与'
       },
     ],
+    tempPrize: [],
     isBgOne: true,
     timeId: null,
     activedIndex: -1,
@@ -73,7 +74,37 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    // 判断是否登录
+    const token = app.getToken()
+    if (!token) return
+    // 获取抽奖次数
+    app.request.post({
+      url: 'api/express/gold/mini/luck/draw/count/get',
+      data: {},
+    }).then(data => {
+      console.log(data)
+      this.setData({
+        lotteryTimes: data
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+    
+    // 获取抽奖信息
+    app.request.post({
+      url: '/api/express/gold/mini/luck/draw/set/get',
+      data: {
+      },
+    }).then(data => {
+      console.log(data)
+      this.setData({
+        tempPrize: data
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -128,9 +159,21 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function({from}) {
-    // 通过按钮点击的分享
+    // 通过右上方三点按钮点击的分享
     if (from === 'menu') {
-      console.log('分享成ee功')
+      app.request.post({
+        url: '/api/mini/share',
+        data: {}
+      }).then(data => {
+        // 分享成功
+
+      }).catch(err => {
+        console.log(err.errMsg)
+      })
+    }
+    console.log(`/pages/index/index?token=${app.getToken()}`)
+    return {
+      path: `/pages/index/index?token=${app.getToken()}`
     }
   },
   prizeEnd (prizeItem) {
@@ -165,6 +208,26 @@ Page({
     }
   },
   prizeStartTap(e) {
+    // 用户是否登录？
+    const token = app.globalData.token ? app.globalData.token : wx.getStorageSync('token')
+    if (!token) {
+      wx.showModal({
+        content: '您还未登录，登录可抽奖',
+        confirmText: '去登录',
+        confirmColor: '#FF2453',
+        cancelColor: '#666666',
+        cancelText: '我再看看',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/index',
+            })
+          }
+        }
+      })
+      return
+    }
+
     // 抽奖开始， 不是抽奖按钮触发或者抽奖中还未结束则不跳出，不进行抽奖
     if (e.currentTarget.dataset.index !== 4) return;
     if (!this.data.lotteryEnd) return;

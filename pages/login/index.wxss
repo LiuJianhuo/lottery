@@ -25,12 +25,12 @@ button.login__btn {
   width:580rpx;
   height: 88rpx;
   line-height: 88rpx;
-  background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
   border-radius:44rpx;
   font-size:32rpx;
   font-family:PingFangSC-Regular,PingFang SC;
   font-weight:400;
   color:rgba(255,255,255,1);
+  background:linear-gradient(90deg,rgba(253,48,105,1) 0%,rgba(255,68,89,1) 100%);
 }
 
 button.login__btn:not([size='mini']) {

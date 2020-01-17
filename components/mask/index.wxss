@@ -1,0 +1,19 @@
+/* components/mask/index.wxss */
+
+.mask {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: .6;
+  z-index: 30000;
+  display: none;
+}
+
+.mask.show {
+  display: block;
+}

@@ -1,0 +1,47 @@
+<!--pages/goods-pid/index.wxml-->
+<button bindtap="handleOpenGoodsList">打开商品列表</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleGoodsPidGenerate">商品生成推广位</button>
+<view>
+  <view>推广位名称：{{newGoodsPid.pid_name}}</view>
+  <view>推广位pid：{{newGoodsPid.p_id}}</view>
+</view>
+<view class="line"></view>
+<button bindtap="handleGoodsPidQuery">商品推广位查询</button>
+<view>
+  <view>推广位名称：{{goodsPid.pid_name}}</view>
+  <view>推广位pid：{{goodsPid.p_id}}</view>
+</view>
+<view class="line"></view>
+<button bindtap="handleGoodsPromotionUrlGenerater">商品生成推广位链接</button>
+<view>
+  <view>appid：{{appInf.app_id}}</view>
+  <view>page_path：{{appInf.page_path}}</view>
+  <button wx:if="{{appInf.app_id}}" bindtap="handleMiniProgram">打开小程序</button>
+</view>
+<view class="line"></view>
+<button bindtap="handleRpPromUrlGenerate">生成营销推广链接</button>
+<view>
+  <view>appid：{{appInf1.app_id}}</view>
+  <view>page_path：{{appInf1.page_path}}</view>
+  <button wx:if="{{appInf1.app_id}}" bindtap="handleMiniProgram1">打开小程序</button>
+</view>
+<view class="line"></view>
+<button bindtap="handleWeappQrcodeUrlGen">生成单品推广小程序二维码url</button>
+<view>
+  <view>weapp url:{{weappUrl}}</view>
+  <button wx:if="{{weappUrl}}" bindtap="handleOpenWeappUrl">打开小程序</button>
+</view>
+<view class="line"></view>
+<button bindtap="handleFinanceCpaQuery">CPA数据查询</button>
+<view>
+  <view>weapp url:{{weappUrl}}</view>
+  <button wx:if="{{weappUrl}}" bindtap="handleOpenWeappUrl">打开小程序</button>
+</view>
+<view class="line"></view>
+<button bindtap="handleThemeListGet">主题列表查询</button>
+<view>
+</view>
+<view class="line"></view>

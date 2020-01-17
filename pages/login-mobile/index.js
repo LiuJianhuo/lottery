@@ -84,7 +84,10 @@ Page({
       })
       return
     }
-    
+    wx.showLoading({
+      title: '',
+      mask: true
+    })
     // 手机登录验证
     app.request.post({
       url: '/api/user/wechat/mini/lack/draw/login',
@@ -93,15 +96,18 @@ Page({
         mobile
       }
     }).then(data => {
-      console.log(data)
-      wx.redirectTo({
-        url: '/pages/index/index',
+      app.globalData.userInfo = data
+      wx.setStorageSync('userInfo', data)
+      app.request.setPostHeader({token: data.token}) // 设置post请求携带得token
+      wx.switchTab({
+        url: '/pages/index/index'
       })
     }).catch(err => {
+      wx.hideLoading()
       wx.showToast({
         title: err.errMsg,
         icon: 'none',
-        duration: 2000,
+        duration: 1800,
         mask: true
       })
     })
@@ -148,8 +154,7 @@ Page({
       wx.showToast({
         title: data,
         icon: 'none',
-        duration: 2000,
-        mask: true
+        duration: 1600
       })
     }).catch(err => {
       wx.showToast({

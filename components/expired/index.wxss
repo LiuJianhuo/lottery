@@ -17,14 +17,14 @@
 
 .usedAmount {
   display: block;
-  height: 48rpx;
   font-size:36rpx;
   font-weight:600;
   font-family:PingFangSC-Semibold,PingFang SC;
   color:rgba(255,255,255,1);
   line-height:48px;
   position: absolute;
-  top:50rpx;
+  top: 50%;
+  transform: translateY(-50%);
   left: 30rpx;
 }
 
@@ -37,9 +37,9 @@
   font-weight:700;
   color:rgba(0,0,0,1);
   line-height:32rpx;
-  position: absolute;
+  /* position: absolute;
   top:42rpx;
-  left: 254rpx;
+  left: 254rpx; */
 }
 
 .usedDate {
@@ -50,18 +50,20 @@
   font-weight:400;
   color:rgba(153,153,153,1);
   line-height:22rpx;
-  position: absolute;
+  /* position: absolute;
   top: 92rpx;
-  left: 254rpx;
+  left: 254rpx; */
 }
+
 
 .usedImage {
   display: block;
   width: 125rpx;
   height: 138rpx;
   position: absolute;
-  top:37rpx;
-  right: 28rpx;
+  top:50%;
+  transform: translateY(-50%);
+  right: 0rpx;
 }
 
 .hhhh {
@@ -69,6 +71,7 @@
   height: 180rpx;
   width: 694rpx;
   margin-bottom: 16rpx;
+  background-color: #fff;
 }
 
 /* 未登录状态下 */
@@ -102,4 +105,33 @@
   line-height:36rpx;
   margin-top: 94rpx;
   margin-left: 85rpx;
+}
+
+.hhhh {
+  background-color: #fff;
+}
+
+.circle {
+  width: 37rpx;
+  height: 37rpx;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #F6F7F9;
+  top: 50%;
+}
+
+.circle.left {
+  left: 0;
+  transform: translate(-50%, -50%)
+}
+
+.circle.right {
+  right: 0;
+  transform: translate(50%, -50%)
+}
+
+.content {
+  position: absolute;
+  top: 26rpx;
+  left: 225rpx;
 }

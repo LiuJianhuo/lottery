@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     console.log('login page on load ...')
-    
+    app.activeLoginStatus(true)
   },
 
   /**
@@ -66,11 +66,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    console.log('分享')
-    return {
-      title: '抽奖',
-      path: '/pages/index/index?token=1111'
-    }
   },
   getPhoneNumber (e) {
     
@@ -82,49 +77,55 @@ Page({
       })
       return
     }
-    console.log(app.globalData.openId)
+
     wx.showLoading({
       title: '授权中',
       mask: true
     })
-    app.request.post({
-      url: 'api/user/wechat/mini/lack/draw/mobile.do',
-      data: {
-        iv: e.detail.iv,
-        encryptedData: e.detail.encryptedData,
-        openId: app.globalData.openId
-      }
-    }).then(data => {
-      const {displayName, mobile, openId, step, tbGrant, token} = data
-      console.log(token)
-      wx.setStorageSync('token', token)
-      app.globalData.token = token
-      wx.hideLoading()
-    }).catch(err => {
-      wx.showToast({
-        title: err.errMsg,
-        icon: 'none'
+    let openId = app.getOpenId()
+    if (openId) {
+      authByWxMobile()
+    } else {
+      // 激活登录态
+      app.activeLoginStatus().then(data => {
+        openId = data
+        authByWxMobile()
+      }).catch(err => {
+        wx.hideLoading()
+        wx.showToast({
+          title: err.errMsg,
+          icon: 'none'
+        })
       })
-    })
-    
-  },
-  getUserInfo (info) {
-    wx.login({
-      success (res) {
-        console.log('login success')
-        console.log(res.code)
-      },
-      fail () {
-        console.log('login fail')
-      }
-    })  
-    console.log(info)
-  },
-  testTap () {
-    request.get('login').then(res => {
-      console.log(res.data)
-    }).catch(err => {
-      console.log(err)
-    })
+    }
+
+    // 微信手机授权
+    function authByWxMobile() {
+      app.request.post({
+        url: 'api/user/wechat/mini/lack/draw/mobile.do',
+        data: {
+          iv: e.detail.iv,
+          encryptedData: e.detail.encryptedData,
+          openId
+        }
+      }).then(data => {
+        const { displayName, mobile, openId, step, tbGrant, token, nickName, headUrl } = data
+        app.request.setPostHeader({ token: data.token }) // 设置post请求携带得token
+        app.globalData.userInfo = data
+        wx.setStorageSync('userInfo', data)
+        wx.hideLoading()
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      }).catch(err => {
+        wx.hideLoading()
+        wx.showToast({
+          title: err.errMsg,
+          icon: 'none'
+        })
+        // 重新授权
+        app.activeLoginStatus(true)
+      })
+    }
   }
 })

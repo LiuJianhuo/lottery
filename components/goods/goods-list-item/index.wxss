@@ -1,0 +1,91 @@
+/* components/goods/goods-list-item/index.wxss */
+/* 商品项 */
+.goods-item {
+  height: 200rpx;
+  padding:0rpx 20rpx;
+}
+
+.goods-item .goods-item__img-wrap {
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+  line-height: 100%;
+}
+.goods-item .goods-item__img-wrap image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.goods-item .goods-item__ctn {
+  float: left;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 30rpx;
+  width: 465rpx;
+  height: 100%;
+  position: relative;
+}
+
+.goods-item .goods-item__title {
+  font-size:32rpx;
+  font-family:PingFang-SC-Medium,PingFang-SC;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  word-break: break-all;
+  padding-right: 6rpx;
+}
+
+.goods-item .goods-item__coupon {
+  font-size:22rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  background: #FF2453;
+  color: #ffffff;
+  padding: 2rpx 6rpx;
+  border-radius: 6rpx;
+}
+.goods-item .goods-item__price-wrap {
+  display: inline-block;
+}
+
+.goods-item .goods-item__discount-price {
+  font-size:24rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color: #FF2453;
+  border-radius: 6rpx;
+}
+.goods-item .goods-item__ctn-bottom {
+  /* display: table-cell;
+  vertical-align: middle;
+  width: 100%; */
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+.goods-item .goods-item__price {
+  font-size:22rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color: rgba(153,153,153,1);
+  text-decoration: line-through;
+}
+
+.goods-item .goods-item__sale {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  float: right;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color: rgba(153,153,153,1);
+}

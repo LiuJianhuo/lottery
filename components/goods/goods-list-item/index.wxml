@@ -1,0 +1,24 @@
+<!--components/goods/goods-list-item/index.wxml-->
+<!-- 商品项 -->
+<view class="goods-item" bindtap="handleGoodsItemTap" data-item="{{item}}">
+  <!-- 商品图片 -->
+  <view class="goods-item__img-wrap">
+    <image src="{{item.goods_thumbnail_url }}" lazy-load></image>
+  </view>
+  <!-- 商品主内容信息 -->
+  <view class="goods-item__ctn">
+    <view class="goods-item__ctn-top">
+      <text class="goods-item__title">{{item.goods_name}}</text>
+      <view> <text class="goods-item__coupon">券￥{{item.coupon_discount / 100}}</text></view>
+    </view>
+    <view class="goods-item__ctn-bottom">
+      <view class="goods-item__price-wrap">
+        <text class="goods-item__discount-price">￥{{(item.min_group_price - item.coupon_discount) / 100}}</text>
+        <text class="goods-item__price">￥{{item.min_group_price / 100}}</text>
+      </view>
+      <view class="goods-item__sale">
+        <text>已售{{item.sales_tip}}</text>
+      </view>
+    </view>
+  </view>
+</view>

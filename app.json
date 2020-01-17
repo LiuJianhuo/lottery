@@ -1,10 +1,15 @@
 {
   "pages": [
+    "pages/goods-pid/index",
+    "pages/test-api/index",
+    "pages/goods-top-list/index",
+    "pages/goods-detail/index",
     "pages/index/index",
     "pages/my-prize/index",
     "pages/login/index",
     "pages/login-mobile/index",
-    "pages/logs/logs"
+    "pages/load/load",
+    "pages/lottery/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,5 +36,13 @@
         "selectedIconPath": "image/qwerre.png"
       }
     ]
-  }
+  },
+  "usingComponents": {
+    "cpt-mask": "/components/mask/index",
+    "cpt-modal": "/components/modal/index"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx553b058aec244b78",
+    "wx32540bd863b27570"
+  ]
 }

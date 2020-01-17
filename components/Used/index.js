@@ -7,6 +7,10 @@ Component({
     login: {
       type: Boolean,
       value: false
+    },
+    prizes: {
+      type: Array,
+      value: []
     }
   },
   
@@ -15,71 +19,35 @@ Component({
 	 */
 	data: {
     login: false,
-    lists: [
-      {
-        id: 1,
-        amount: '10.00',
-        title:"中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
+    lists: [{
+      expressName: "测试7",
+      amount: "2.00",
+      couponNo: "658625871984332800",
+      startTime: "2019-12-23 11:04:03",
+      endTime: "2019-12-28 11:04:03"
+    },
+    {
+      expressName: "测试7",
+      amount: "2.00",
+      couponNo: "658625871984332800",
+      startTime: "2019-12-23 11:04:03",
+      endTime: "2019-12-28 11:04:03"
       },
       {
-        id: 2,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
+        expressName: "测试7",
+        amount: "2.00",
+        couponNo: "658625871984332800",
+        startTime: "2019-12-23 11:04:03",
+        endTime: "2019-12-28 11:04:03"
       },
       {
-        id: 3,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-      },
-      {
-        id: 4,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-      },
-      {
-        id: 5,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-      },
-      {
-        id: 6,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-      },
-      {
-        id: 7,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-      },
-      {
-        id: 8,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-      },
-      {
-        id: 9,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
+        expressName: "测试7",
+        amount: "2.00",
+        couponNo: "658625871984332800",
+        startTime: "2019-12-23 11:04:03",
+        endTime: "2019-12-28 11:04:03"
       }
-    ]
+    ],
 	},
 
 	/**

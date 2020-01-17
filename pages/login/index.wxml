@@ -1,6 +1,8 @@
 <!--pages/login/index.wxml-->
 <view class="login">
-  <view class="avatar"></view>
+  <!-- <view class="avatar">
+  </view> -->
+  <image class="avatar" src="../../image/logo.png"></image>
   <!-- <button  bindgetuserinfo="getUserInfo" bindtap="getUserInfo">登录</button> -->
   <button open-type="getPhoneNumber" class="login__btn" bindgetphonenumber="getPhoneNumber">微信登录</button>
   <navigator class="login__tip" url="../login-mobile/index">手机号登陆/注册</navigator>

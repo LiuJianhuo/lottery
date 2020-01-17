@@ -1,0 +1,32 @@
+<!--pages/goods-detail/index.wxml-->
+<block wx:if="{{!goodsItem}}">
+  <view>加载中...</view>
+</block>
+<block>
+<view class="page">
+  <image class="back-icon" src="../../image/back-icon.png" bindtap="handleGoBackTap"></image>
+  <view class="page__bd" class="goods-item">
+    <image class="goods-img" src="{{goodsItem.goods_image_url}}"></image>
+    <view class="main">
+      <text class="goods-title">{{goodsItem.goods_name}}</text>
+      <view class="goods-item__price-wrap">
+        <text class="goods-item__discount-price">￥{{(goodsItem.min_group_price - goodsItem.coupon_discount) / 100}}</text>
+        <text class="goods-item__price">￥{{goodsItem.min_group_price / 100}}</text>
+      </view>
+      <view class="goods-item__coupon">立即领取优惠券{{goodsItem.coupon_discount / 100}}</view>
+      <!-- 商品描述 -->
+      <view class="goods-desc-wrap">
+        <text>商品描述</text>
+        <view class="goods-desc__title-wrap">
+          <text class="goods-desc__title">PRODUCT INFO</text>
+        </view>
+        <view class="goods-item__desc">{{goodsItem.goods_desc}}</view>
+      </view>
+      <!-- 图片展览 -->
+      <view>
+        <image class="goods-imgs_item" wx:for="{{goodsItem.goods_gallery_urls}}" src="{{item}}" lazy-load wx:key="index"></image>
+      </view>
+    </view>
+  </view>
+</view>
+</block>

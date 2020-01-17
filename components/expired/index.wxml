@@ -1,12 +1,14 @@
 <!--components/expired/index.wxml-->
 <view class="usedTop">
   <block wx:if="{{login}}">
-    <view wx:for="{{lists}}" wx:key="id">
+    <view wx:for="{{prizes}}" wx:key="id">
       <view class="hhhh">
-        <image class="usedImg" src="{{item.img}}"></image>
+        <image class="usedImg" src="../../image/used.png"></image>
         <text class="usedAmount">￥{{item.amount}}</text>
-        <text class="usedTitle">{{item.title}}</text>
-        <text class="usedDate">使用期限：{{item.date}}</text>
+        <view class="content">
+          <view class="usedTitle">{{item.expressName}}</view>
+          <text class="usedDate">使用期限：{{item.startTime}}-{{item.endTime}}</text>
+        </view>
         <image class="usedImage" src="../../image/shixiao.png"></image>
       </view>
     </view>

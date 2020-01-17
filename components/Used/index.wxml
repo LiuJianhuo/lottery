@@ -2,12 +2,17 @@
 <!-- <text>你已使用</text> -->
 <view class="usedTop">
   <block wx:if="{{login}}">
-    <view wx:for="{{lists}}" wx:key="id">
+    <view wx:for="{{prizes}}" wx:key="couponNo">
       <view class="hhhh">
-        <image class="usedImg" src="{{item.img}}"></image>
+        <view class="circle left"></view>
+        <view class="circle right"></view>
+        <image class="usedImg" src="../../image/used.png"></image>
+        
         <text class="usedAmount">￥{{item.amount}}</text>
-        <text class="usedTitle">{{item.title}}</text>
-        <text class="usedDate">使用期限：{{item.date}}</text>
+        <view class="content">
+          <view class="usedTitle">{{item.expressName}}</view>
+          <text class="usedDate">使用期限：{{item.startTime}}-{{item.endTime}}</text>
+        </view>
         <image class="usedImage" src="../../image/used-1.png"></image>
       </view>
     </view>

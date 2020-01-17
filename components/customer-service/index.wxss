@@ -1,0 +1,36 @@
+/* components/customer-service/index.wxss */
+
+
+.contact {
+  display: inline-block;
+  position: fixed;
+  bottom: 30px;
+  right: 0px;
+  z-index: 40000;
+}
+
+.contact .contact__img{
+  width: 95rpx;
+  height: 95rpx;
+  border-radius: 50%;
+}
+
+button.contact__btn {
+  position: absolute;
+  padding: 0;
+  width: 95rpx;
+  height: 95rpx;
+  line-height: 100rpx;
+  background: transparent;
+  /* background-color: red; */
+  border-radius: 50%;
+  z-index: 40000;
+}
+
+button.contact__btn:not([size='mini']) {
+  min-height: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 95rpx;
+  height: 95rpx;
+}

@@ -1,4 +1,5 @@
 // components/will-used/index.js
+const app = getApp()
 Component({
 	/**
 	 * 组件的属性列表
@@ -7,6 +8,10 @@ Component({
     login: {
       type: Boolean,
       value: false
+    },
+    prizes: {
+      type: Array,
+      value: []
     }
 	},
 
@@ -15,96 +20,79 @@ Component({
 	 */
 	data: {
     lists: [{
-      id: 1,
-      img: '../../image/wil.png',
-      amount: '2.20',
-      title: '中通快递抵用金',
-      date: '2020/01/01'
+      expressName: "测试7",
+      amount: "2.00",
+      couponNo: "658625871984332800",
+      startTime: "2019-12-23 11:04:03",
+      endTime: "2019-12-28 11:04:03"
     },
     {
-      id: 11,
-      img: '../../image/wil.png',
-      amount: '9.90',
-      title: '中通快递抵用金',
-      date: '2020/01/01'
+      expressName: "测试7",
+      amount: "2.00",
+      couponNo: "658625871984332800",
+      startTime: "2019-12-23 11:04:03",
+      endTime: "2019-12-28 11:04:03"
       },
       {
-        id: 2,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
+        expressName: "测试7",
+        amount: "2.00",
+        couponNo: "658625871984332800",
+        startTime: "2019-12-23 11:04:03",
+        endTime: "2019-12-28 11:04:03"
       },
       {
-        id: 3,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
-      },
-      {
-        id: 4,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
-      },
-      {
-        id: 5,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
-      },
-      {
-        id: 6,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
-      },
-      {
-        id: 7,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
-      },
-      {
-        id: 8,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
-      },
-      {
-        id: 9,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
-      },
-      {
-        id: 10 ,
-        img: '../../image/wil.png',
-        amount: '9.90',
-        title: '中通快递抵用金',
-        date: '2020/01/01'
+        expressName: "测试7",
+        amount: "2.00",
+        couponNo: "658625871984332800",
+        startTime: "2019-12-23 11:04:03",
+        endTime: "2019-12-28 11:04:03"
       }
     ],
     showCode: false
 	},
-
+  ready() {
+  },
+ 
 	/**
 	 * 组件的方法列表
 	 */
 	methods: {
     code: function (e) {
-      this.setData({
-        showCode: true
+      // 使用快递金，第一次可以直接使用，不是第一次徐到app中使用
+      app.isFirstUsePrize().then(firstUse => {
+        console.log(firstUse)
+        if (firstUse === true) { 
+          this.setData({
+            showCode: true
+          })
+          this.triggerEvent('showCode', e)
+        } else {
+          // wx.navigateTo({
+          //   url: 'https://a.app.qq.com/o/simple.jsp?pkgname=com.zhongbai.wengweng',
+          // })
+          app.modal.show()
+          // wx.showModal({
+          //   title: '',
+          //   content: '再次使用快递金需要前往蜜蜂嗡嗡\r\napp使用哦',
+          //   confirmColor: '#FF2453',
+          //   confirmText: '前往下载',
+          //   cancelColor: '#999999',
+          //   cancelText: '再等等',
+          //   success (res) {
+          //     if (res.confirm) {
+          //       wx.navigateTo({
+          //         url: 'https://a.app.qq.com/o/simple.jsp?pkgname=com.zhongbai.wengweng',
+          //       })
+          //     }
+          //   }
+          // })
+        }
+      }).catch(err => {
+        console.log(err)
       })
-      this.triggerEvent('showCode', e)
+      
     },
+  
     closeCode: function () {
       console.log('close')
       this.setData({

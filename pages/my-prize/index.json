@@ -4,6 +4,7 @@
 	"used": "../../components/Used",
 	"expired": "../../components/expired",
 	"will-used": "../../components/will-used",
-  "code": "../../components/will-used/modal/index"
+  "code": "../../components/will-used/modal/index",
+  "customer-service": "/components/customer-service/index"
   }
 }

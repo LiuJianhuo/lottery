@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "goods-list-item": "/components/goods/goods-list-item/index"
+  },
+  "navigationBarTitleText": "爆款商品"
+}

@@ -1,0 +1,16 @@
+<!--components/model/index.wxml-->
+<view class="modal {{show ? 'show' : ''}}">
+  <view class="modal__content-wrap">
+    <view class="modal__content">
+      <slot name="content"></slot>
+    </view>
+  </view>
+  <view class="modal__btns">
+    <view class="modal__btn btn-cancel" bindtap="cancel">
+      <slot name="cancel"></slot>
+    </view>
+    <view class="modal__btn btn-ok" bindtap="ok">
+      <slot name="ok"></slot>
+    </view>
+  </view>
+</view>

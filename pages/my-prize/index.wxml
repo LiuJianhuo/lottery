@@ -1,6 +1,8 @@
 <!--pages/login/index.wxml-->
 <popup show="{{showPopup}}" bind:close="closePopup"></popup>
-<code show="{{showCode}}" bind:close="closeCode"></code>
+<block wx:if="{{showCode}}">
+  <code bind:close="closeCode" code="{{code}}"></code>
+</block>
 <view class="mask {{showMask ? 'show' : ''}}"></view>
 <!-- 头部部分 -->
 <image class="header-top" src="../../image/juxing.png"></image>
@@ -8,9 +10,9 @@
   <view class="header-header">
     <view class="character-avatar">
       <!-- <image class="character-img" src="../../image/Oval.png"></image> -->
-      <image class="character-imgs" src="../../image/Mask.png"></image>
-      <text class="character-name">落雪纯白</text>
-      <button class="character-out" bindtap="getup">退出登录</button>
+      <image class="character-imgs circle" src="{{userInfo.headUrl ? userInfo.headUrl : '../../image/renwu.png'}}"></image>
+      <text class="character-name">{{userInfo.nickName}}</text>
+      <view class="character-out" bindtap="getout">退出登录</view>
     </view>
     <text class="Rules" bindtap="popup">使用规则</text>
   </view>
@@ -19,9 +21,9 @@
   <view class="header-header">
     <view class="character-avatar">
       <!-- <image class="character-img" src="../../image/Oval.png"></image> -->
-      <image class="character-imgs" src="../../image/Mask.png"></image>
+      <image class="character-imgs circle" src="../../image/renwu.png"></image>
       <text class="character-name">请登录~</text>
-      <button class="character-out" bindtap="getout">点击登录</button>
+      <view class="character-out" bindtap="getup">点击登录</view>
     </view>
     <text class="Rules" bindtap="popup">使用规则</text>
   </view>
@@ -48,12 +50,12 @@
        </block>
      </view>
      <view class="movie-content-wrapper">
-       <swiper class="jkj" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
+       <swiper class="jkj" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish" circular="true">
          <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
            <scroll-view class="hgh" scroll-y="{{true}}">
-             <used login="{{login}}" wx:if="{{navbarActiveIndex === 1}}" ></used>
-             <expired login="{{login}}" wx:elif="{{navbarActiveIndex === 2}}"></expired>
-             <will-used login="{{login}}" wx:else="{{navbarActiveIndex === 0}}" bind:showCode='showCode'></will-used>
+             <used login="{{login}}" wx:if="{{index === 1}}" prizes="{{usedPrizes}}"></used>
+             <expired login="{{login}}" wx:elif="{{index === 2}}" prizes="{{expiredPrizes}}"></expired>
+             <will-used login="{{login}}" wx:else="{{index === 0}}" bind:showCode='showCode' prizes="{{willUsePrizes}}"></will-used>
            </scroll-view>
          </swiper-item>
        </swiper>
@@ -61,3 +63,18 @@
    </view>
 	</view>
 </view>
+<cpt-mask id="mask"> </cpt-mask>
+<cpt-modal id="modal">
+  <!-- <button slot="cancel"></button> -->
+  <!-- <button slot="ok">ok</button> -->
+  <view slot="content">
+  <view>再次使用快递金需要前往蜜蜂嗡嗡</view>
+    <view>app使用哦</view>
+    <!-- <view>点击小卡片或回复蜜蜂嗡嗡</view>
+    <view>可快速获取蜜蜂嗡嗡下载链接</view> -->
+    <view></view>
+  </view>
+  <button class="btn-cancel" slot="cancel">再等等</button>
+  <button open-type="contact" class="btn-ok" slot="ok">前往下载</button>
+</cpt-modal>
+<customer-service></customer-service>

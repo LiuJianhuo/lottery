@@ -1,18 +1,13 @@
 <!--index.wxml-->
-<!-- <view class="mask {{showMask ? 'active' : ''}}" catchtouchmove="true"></view>
-<lottery-modal show="{{showWinModal}}" content="恭喜你获得5元快递金" btnName="去领取" bind:okTap="getCoupon">
-</lottery-modal>
-<lottery-modal show="{{showNoWinModal}}" btnName="好的" bind:okTap="closeNoWinModal">
-  <text>很遗憾</text>
-  <text>点击右上角</text>
-  <text>发送给朋友可获取更多抽奖机会</text>
-</lottery-modal> -->
+<!-- <button bindtap="hello">hello</button> -->
+<share-minipro id="shareMinipro" wx:if="{{showShareMinipro}}" bindclose="closeShareMinipro"></share-minipro>
 <image class="content-beijing" src="../../image/content.png"></image>
 <view>
+
   <view class="header">
     <image class="header-img" src="../../image/biaoti.png"></image>
   </view>
-  <view class="prize-page">
+<view class="prize-page">
     <view class="prize-container">
       <view class="prize-list-wrap">
         <image class="prize-list__bg_img" src="../../image/choujiangbeijing.png"></image>
@@ -30,14 +25,17 @@
                     <text class="prize-btn__lottery-times">次数:{{lotteryTimes}}次</text>
                   </block>
                   <!-- 谢谢参与 -->
-                  <block wx:elif="{{item.amount === 0}}">
+                  <block wx:elif="{{item.amount - 0 === 0}}">
                     <view class="prize-item_txt">谢谢</view>
                     <view class="prize-item_txt">参与</view>
+                    <!-- <view class="prize-item_txt">红包</view>
+                    <view class="prize-item_txt">奖励</view> -->
                   </block>
                   <block wx:else>
-                    <image wx:if="{{activedIndex === index}}" class="prize-btn__bg-icon" src="../../image/bg.png"></image>
+                    <!-- <image wx:if="{{activedIndex === index}}" class="prize-btn__bg-icon" src="../../image/bg.png"></image> -->
                     <!-- <image class="prize-item__icon" src="../../image/bn.png"></image> -->
-                    <image class="prize-item__icon" src="{{ item.img }}"></image>
+                    <!-- <image class="prize-item__icon" src="{{ item.img }}"></image> -->
+                    <raffle-ticket ticket="{{item}}"></raffle-ticket>
                   </block>
                 </view>
               </view>
@@ -63,18 +61,10 @@
   <view class="cjjlll">
     <view class="cjjl">
       <!-- <view class="cccjjj">中奖记录</view> -->
-      <swiper title="中奖记录" class="cjjl2" autoplay="true" interval="1000" vertical display-multiple-items="5" circular="true">
-        <swiper-item>恭喜！ 陈志英用户获得1元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得2元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得3元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得4元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得5元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得6元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得7元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得8元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得9元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得10元快递金</swiper-item>
-        <swiper-item>恭喜！ 陈志英用户获得11元快递金</swiper-item>
+      <swiper class="winprize-swiper" title="中奖记录" class="cjjl2" autoplay="true" interval="1000" display-multiple-items="5" vertical  circular="true">
+        <swiper-item class="winprize-swiper__item" wx:for="{{winPrizeRecords}}" wx:key="couponNo">
+          恭喜! {{item.userName}}用户获得{{item.amount - 0}}元快递金
+        </swiper-item>
       </swiper>
     </view>
   </view>
@@ -89,5 +79,22 @@
       <text class="hhhh">3、抽中的快递金券请在“我的快递金”页面查看。快递金劵自抽中日期起7日内有效，过期自动失效，不退不补。</text>
       <text class="hhhh">4、快递金券仅限线下寄中通快递时使用，由快递员使用蜜蜂嗡嗡APP进行核销。</text>
     </view>
+  </view>
+</view>
+<customer-service></customer-service>
+<!-- <image class="share {{shareShow ? 'active' : ''}}" src="../../image/share.png"></image> -->
+<cpt-mask id="mask" bindtap="closeMask"></cpt-mask>
+<view class="share-tabbar" animation="{{shareTabbarAnimationData}}" bindtransitionend="shareTabbarAnimEnd" catchtouchmove="true">
+  <view class="item" bindtap="shareFriend">
+    <button class="icon-wrap icon-box" plain open-type="share">
+      <image class="icon" src="../../image/wx.png"></image>
+    </button>
+    <text>分享好友</text>
+  </view>
+  <view class="item" bindtap="savePic">
+    <view class="icon-wrap icon-box">
+      <image class="icon save-pic" src="../../image/icon-pic.png"></image>
+    </view>
+    <text>保存图片</text>
   </view>
 </view>

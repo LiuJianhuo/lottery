@@ -1,0 +1,5 @@
+<!--components/share-miniproject/index.wxml-->
+<!-- 分享小程序 -->
+<view class="share-minipro-wrap {{show ? 'active' : ''}}">
+  <canvas canvas-id="shareMinipro" id="shareMinipro" class="share-minipro" catchtouchmove="true"></canvas>
+</view>

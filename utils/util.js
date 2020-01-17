@@ -27,7 +27,11 @@ class Request {
     this.postHeader = {
       // 'Content-Type': 'application/x-www-form-urlencoded'
     }
-    this.token = wx.getStorageSync('token')
+    const userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      this.postHeader.token = userInfo.token
+    }
+    
   }
 
   get({ url, data }) {
@@ -35,12 +39,11 @@ class Request {
   }
 
   post({ url, data, header }) {
-    header = Object.assign({token: this.token}, this.postHeader, header)
+    header = Object.assign({}, this.postHeader, header)
     return this.request({method: 'POST', url, data, header})
   }
 
   request({ method, url, data, header={}, needToken=true }) {
-    console.log('----------', method, '--------', header)
     const record = ({ url, method, data, result}) => {
       if (this.debug) {
         console.group()
@@ -50,7 +53,6 @@ class Request {
         console.groupEnd()
       }
     }
-    console.log(header)
     // post请求默认带token
     if ((method !== 'POST' || !needToken)) {
       Object.keys(header).find(key => {
@@ -59,7 +61,6 @@ class Request {
         }
       })
     }
-    console.log(header)
     const self = this
     let requestTask = null
     const promise = new Promise(function (resolve, reject) {
@@ -93,6 +94,10 @@ class Request {
       this.postHeader = Object.assign(this.postHeader, header)
       this.token = header.token ? header.token : this.token
     }
+  }
+
+  restoreDefault() {
+    this.postHeader = {}
   }
 }
 const reqConfig = require('../apis/api.config.js')

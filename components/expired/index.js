@@ -7,6 +7,10 @@ Component({
     login: {
       type: Boolean,
       value: false
+    },
+    prizes: {
+      type: Array,
+      value: []
     }
   },
 
@@ -15,30 +19,6 @@ Component({
 	 */
 	data: {
     lists: [
-      {
-        id: 1,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-        image: '../../image/used-1.png'
-      },
-      {
-        id: 2,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-        image: '../../image/used-1.png'
-      },
-      {
-        id: 3,
-        amount: '10.00',
-        title: "中通快递抵用金",
-        date: '2019/09/09-202',
-        img: '../../image/used.png',
-        image: '../../image/used-1.png'
-      }
     ]
 
 	},

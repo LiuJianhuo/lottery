@@ -1,0 +1,5 @@
+<!--components/customer-service/index.wxml-->
+<view class="contact">
+  <button class="contact__btn" open-type="contact"></button>
+  <image class="contact__img" src="../../image/contact.png"></image>
+</view>

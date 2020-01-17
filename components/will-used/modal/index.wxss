@@ -59,3 +59,9 @@
   line-height:36rpx;
 }
 
+.qrcode {
+  width: 310rpx;
+  height: 310rpx;
+  background:#f1f1f1;
+}
+

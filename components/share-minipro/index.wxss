@@ -1,0 +1,29 @@
+/* components/share-miniproject/index.wxss */
+.share-minipro-wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  left: 50%;
+  z-index: 32000;
+  transform: translateX(-50%);
+  bottom: 250rpx;
+}
+
+.share-minipro {
+  position: relative;
+  width: 600rpx;
+  height: 900rpx;
+}
+
+.share-tip {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 20rpx;
+}
+
+.share-close {
+  margin-top: 10rpx;
+  width: 45rpx;
+  height: 45rpx;
+}

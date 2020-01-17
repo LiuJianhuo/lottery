@@ -1,0 +1,2 @@
+<!--pages/load/load.wxml-->
+<web-view src="https://a.app.qq.com/o/simple.jsp?pkgname=com.zhongbai.wengweng"></web-view>

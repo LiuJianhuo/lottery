@@ -124,6 +124,7 @@
  
  .jkj {
    height: calc(100vh - 165px );
+   background-color: #F6F7F9;
  }
 
  .hgh {
@@ -142,4 +143,20 @@
 
  .mask.show {
    display: block;
+ }
+
+ .circle {
+   border-radius: 50%;
+ }
+
+.btn-ok {
+  color: #FF2453;
+}
+
+.btn-cancel {
+  color: #999999;
+}
+ 
+ .character-imgs.circle {
+   background-color: #fff;
  }

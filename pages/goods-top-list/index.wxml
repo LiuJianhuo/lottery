@@ -1,0 +1,27 @@
+<!--pages/test-api/index.wxml-->
+<view class="page">
+	<view class="page__bd">
+		<view class="kdj-tab">
+			<view class="kdj-navbar">
+				<view wx:for="{{_navList}}" wx:key="value" 
+						class="kdj-navbar__item {{activedNavItem === item.value ? 'active' : ''}}"
+						data-id="{{item.value}}" 	bindtap="handleNavChange" >
+					<label>{{item.label}}</label>
+				</view>
+			</view>
+			<view class="kdj-tab__panel">
+				<!-- 商品项 -->
+				<goods-list-item class="goods-list-item" wx:for="{{goodsList}}" wx:key="goods_id" item="{{item}}" bind:itemTap="handleGoodsItemTap"></goods-list-item>
+				<view class="weui-loadmore {{showNoMoreData ? 'weui-loadmore_line' : ''}}">
+					<block wx:if="{{showNoMoreData}}">
+						<text class="weui-loadmore__tips">已到底</text>
+					</block>
+					<block wx:else>
+						<view class="weui-loading"></view>
+						<view class="weui-loadmore__tips">正在加载</view>
+					</block>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

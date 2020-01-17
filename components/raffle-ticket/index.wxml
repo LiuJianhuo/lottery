@@ -1,0 +1,9 @@
+<!--components/raffle-ticket/index.wxml-->
+<view class="raffle-ticket {{bgColorClass}}">
+  <view class="raffle-ticket__amount">
+    <text class="raffle-ticket__amount-prefix">¥</text>{{ticket.amount - 0}}
+  </view>
+  <view class="raffle-ticket__name">快递金</view>
+  <view class="raffle-ticket__circle left"></view>
+  <view class="raffle-ticket__circle right"></view>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/lottery/index.wxml-->
+<web-view src="{{webSrc}}"></web-view>

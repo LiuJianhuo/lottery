@@ -1,0 +1,110 @@
+/* pages/test-animate/index.wxss */
+
+.seperate {
+  background-color: #EEE;
+  height: 5px;
+}
+
+.menu {
+  background-color: white;
+  margin-top: 5px;
+  height: 88px;
+}
+
+.scroll-menu {
+  height: 100%;
+}
+
+.menu-wrap {
+  padding: 9px 0px;
+  white-space: nowrap;
+  position: relative;
+  width: 910px;
+}
+
+.menu-item {
+  position: relative;
+  width: 199px;
+  display: inline-block;
+  margin-left: 10px;
+  border-right: 1px solid black;
+}
+
+.menu-item__img {
+  width: 70px;
+  height: 70px;
+  background: rgba(1, 1, 1, 1);
+  border-radius: 5%;
+  display: inline-block;
+  vertical-align: super;
+}
+
+.menu-item__more {
+  display: inline-block;
+  max-width: 50px;
+  vertical-align: super;
+  font-size: 12px;
+  margin-left: 10px;
+  position: sticky;
+  left: 355px;
+
+}
+
+.look-more {
+  writing-mode: tb;
+  background: #F3F3F3;
+  color: #888;
+  padding: 5px 0px;
+  z-index: 1;
+
+}
+
+.transform {
+  z-index: 0;
+  position: absolute;
+  width: 0px;
+  height: 100%;
+  right: 100%;
+  top: 0;
+  background: #F3F3F3;
+  border-radius: 200% 0 0 200%/100% 0 0 100%;
+}
+
+.info {
+  /* height: 150px; */
+  /* position: relative; */
+}
+
+.box {
+  height:  150px;
+  border-bottom: 1px solid black;
+}
+
+scroll-view {
+  position: relative;
+  height: 100%;
+  display: block;
+}
+
+.nav {
+  position: sticky;
+  top: 0px;
+  border: 1px solid rebeccapurple;
+  height: 200px;
+  display: flex;
+}
+
+.nav label {
+  margin-right: 15px;
+}
+
+.avatar {
+  position: sticky;
+  width: 120px;
+  height: 120px;
+  background-color: rebeccapurple;
+  /* left: 20px; */
+  top: 10px;
+  z-index: 2;
+  transform-origin: center;
+}

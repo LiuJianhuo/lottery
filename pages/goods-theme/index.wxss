@@ -1,0 +1,33 @@
+/* pages/goods-theme/index.wxss */
+page,
+.page,
+.page__bd{
+  height: 100%;
+}
+
+/* 主题列表 */
+.theme-list {
+  text-align: center;
+}
+
+.theme-list .theme-list-item {
+  /* float: left; */
+  padding: 20rpx;
+  padding-bottom: 0rpx;
+}
+
+.theme-list-item .theme-list-item__title {
+  font-size:32rpx;
+  font-family:PingFang-SC-Medium,PingFang-SC;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  margin-bottom: 6rpx;
+  display: block;
+}
+
+.theme-list-item .theme-list-item__image{
+  width: 100%;
+  height: 337.9rpx;
+  /* height: 100%; */
+  /* height: 176rpx; */
+}

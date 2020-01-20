@@ -72,11 +72,63 @@ const topGoodsListQuery = params => {
   })
 }
 
+// 获取商品基本信息接口
+// pdd.ddk.goods.basic.info.get（获取商品基本信息接口）
+const goodsBasicInfoGet = params => {
+  return ddkRequest({
+    method: 'post',
+    params: {
+      type: 'pdd.ddk.goods.basic.info.get',
+      ...params
+    }
+  })
+}
+
+// 运营频道商品查询
+// pdd.ddk.goods.recommend.get（运营频道商品查询API）
+const goodsRecommendGet = params => {
+  return ddkRequest({
+    method: 'post',
+    params: {
+      type: 'pdd.ddk.goods.recommend.get',
+      ...params
+    }
+  })
+}
+
+// 商品推广计划
+// pdd.ddk.goods.unit.query（查询商品的推广计划）
+const goodsUnitQuery = params => {
+  return ddkRequest({
+    method: 'post',
+    params: {
+      type: 'pdd.ddk.goods.unit.query',
+      ...params
+    }
+  })
+}
+
+// 多多进宝转链接口
+// pdd.ddk.goods.zs.unit.url.gen（多多进宝转链接口）
+const goodsZsUnitUrlGen = params => {
+  return ddkRequest({
+    method: 'post',
+    params: {
+      type: 'pdd.ddk.goods.zs.unit.url.gen',
+      ...params
+    }
+  })
+}
+
 export default {
   goodsSearch,
   goodsDetail,
   goodsPidGenerate,
   goodsPidQuery,
   goodsPromotionUrlGenerater,
-  topGoodsListQuery
+  topGoodsListQuery,
+  goodsBasicInfoGet,
+  goodsRecommendGet,
+  goodsUnitQuery,
+  goodsZsUnitUrlGen
 }

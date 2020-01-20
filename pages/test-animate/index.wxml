@@ -1,0 +1,50 @@
+<!--pages/test-animate/index.wxml-->
+<scroll-view scroll-y  throttle="{{false}}" id="scroller" scroll-with-animation>
+  <view class="seperate"></view>
+  <!-- <view class="avatar" style="background:red">
+      </view> -->
+
+
+
+      <view class="nav" style="top:0px;">
+        <label>我</label><label>你ddd</label><label>他</label>
+      </view>
+       <view class="box">
+    </view>
+  <view class="info" style="">
+    
+    <view class="menu">
+      <!-- <scroll-view class="scroll-menu" bindscroll="handleScroll" id="scrollMenu" 
+        scroll-left="{{scrollLeft}}" scroll-with-animation
+      scroll-x width="100%" bindtouchend="handleTouchend">
+        <view class="menu-wrap">
+          <view class="menu-item" wx:for="1234">
+            <image class="menu-item__img"></image>
+          </view>
+          <view class="menu-item__more">
+            <text class="look-more">查看更多</text>
+            <view class="transform" id="transfrom"></view>
+          </view>
+        </view>
+      </scroll-view> -->
+       </view>
+      <!-- <view class="avatar">
+      </view> -->
+    <view class="box">
+    </view>
+    <!-- <view class="seperate"></view> -->
+    
+    <view class="box">
+    </view>
+    <view class="box">
+    </view>
+    <view class="box">
+    </view>
+    <view class="box">
+    </view>
+    <view class="box">
+    </view>
+    </view>
+  
+</scroll-view>
+

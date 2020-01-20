@@ -1,0 +1,13 @@
+<!--pages/goods-theme/index.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="theme-list">
+      <view class="theme-list-item" wx:for="{{themeList}}" wx:key="id" bindtap="handleThemeItemTap" data-theme="{{item}}">
+        <label class="theme-list-item__title">{{item.name}}</label>
+        <view>
+          <image class="theme-list-item__image" src="{{item.image_url}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

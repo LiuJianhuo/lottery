@@ -45,3 +45,68 @@
 <view>
 </view>
 <view class="line"></view>
+<button bindtap="handleThemePromUrlGenerate">主题推广链接</button>
+<view>
+  <view>appid：{{themeAppInf.app_id}}</view>
+  <view>page_path：{{themeAppInf.page_path}}</view>
+  <button wx:if="{{themeAppInf.app_id}}" bindtap="handleThemeMiniProgram">打开小程序</button>
+</view>
+<view class="line"></view>
+<button bindtap="handleCmsPromUrlGenerate">商城推广链接</button>
+<view>
+  <view>appid：{{themeAppInf.app_id}}</view>
+  <view>page_path：{{themeAppInf.page_path}}</view>
+  <button wx:if="{{themeAppInf.app_id}}" bindtap="handleThemeMiniProgram">打开小程序</button>
+</view>
+<view class="line"></view>
+<button bindtap="handleLotteryUrlGen">生成转盘抽免单url</button>
+<view>
+  <view>appid：{{lotteryUrlAppInf.app_id}}</view>
+  <view>page_path：{{lotteryUrlAppInf.page_path}}</view>
+  <button wx:if="{{lotteryUrlAppInf.app_id}}" bindtap="handleLotteryUrlMiniProgram">打开小程序</button>
+</view>
+<view class="line"></view>
+<button bindtap="handleOrderListRangeGet">推广订单查询</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleOrderDetailGet">查看订单详情</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleGoodsBasicInfoGet">商品基本信息</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleCouponInfoQuery">查询优惠券信息</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleGoodsRecommendGet">运营频道商品查询</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleGoodsZsUnitUrlGen">转链接</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleResourceUrlGen">生成频道推广链接</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleOrderListIncrementGet">订单增量</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleMerchantListGet">店铺列表</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleMallGoodsListGet">查询店铺商品</button>
+<view>
+</view>
+<view class="line"></view>
+<button bindtap="handleMallUrlGen">生成店铺链接</button>
+<view>
+</view>
+<view class="line"></view>

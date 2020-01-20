@@ -37,7 +37,8 @@ const PddRequest = ({ baseUrl, cid, secret }) => {
         data: data,
         success(res) {
           if (res.data.error_response) {
-            console.log(res.data.error_response.error_code)
+            // console.log(res.data.error_response.error_code)
+            console.log(res.data.error_response)
             reject({ errMsg: res.data.error_response.error_msg, errCode: res.data.error_response.error_code })
           } else {
             resolve(res.data)

@@ -1,15 +1,18 @@
 {
   "pages": [
+    "pages/test-animate/index",
     "pages/goods-pid/index",
+    "pages/index/index",
+    "pages/goods-theme/index",
     "pages/test-api/index",
     "pages/goods-top-list/index",
     "pages/goods-detail/index",
-    "pages/index/index",
     "pages/my-prize/index",
     "pages/login/index",
     "pages/login-mobile/index",
     "pages/load/load",
-    "pages/lottery/index"
+    "pages/lottery/index",
+    "pages/goods-theme-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

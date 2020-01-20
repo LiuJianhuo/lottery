@@ -1,0 +1,7 @@
+<!--pages/goods-theme-detail/index.wxml-->
+<view class="page">
+	<view class="page__bd">
+    <!-- 商品项 -->
+    <goods-list-item class="goods-list-item" wx:key="goods_id" wx:for="{{goodsList}}" item="{{item}}" bind:itemTap="handleGoodsItemTap"></goods-list-item>
+	</view>
+</view>

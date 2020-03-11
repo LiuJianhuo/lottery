@@ -26,6 +26,8 @@
                   </block>
                   <!-- 谢谢参与 -->
                   <block wx:elif="{{item.amount - 0 === 0}}">
+                    <!-- <view class="prize-item_txt">专属</view>
+                    <view class="prize-item_txt">福利</view> -->
                     <view class="prize-item_txt">谢谢</view>
                     <view class="prize-item_txt">参与</view>
                     <!-- <view class="prize-item_txt">红包</view>
@@ -98,3 +100,17 @@
     <text>保存图片</text>
   </view>
 </view>
+<!-- 未抽中，显示的modal -->
+<cpt-modal id="modal" class="modal">
+  <!-- <button slot="cancel"></button> -->
+  <!-- <button slot="ok">ok</button> -->
+  <view slot="content">
+  <view class="content">恭喜，获得一份免单保险无需付保费，填单即生效</view>
+    <!-- <view>app使用哦</view> -->
+    <!-- <view>点击小卡片或回复蜜蜂嗡嗡</view>
+    <view>可快速获取蜜蜂嗡嗡下载链接</view> -->
+    <view></view>
+  </view>
+  <button class="btn-cancel" slot="cancel" bindtap="handleNoGetPrize" data-type="cancel">分享再抽一次</button>
+  <button class="btn-ok" slot="ok" bindtap="handleNoGetPrize" data-type="ok">去领取</button>
+</cpt-modal>

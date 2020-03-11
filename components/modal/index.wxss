@@ -59,7 +59,7 @@
   line-height: 100rpx;
   font-size:32rpx;
   font-family:PingFangSC-Regular,PingFang SC;
-  font-weight:400;
+  /* font-weight:400; */
   /* color:rgba(255,255,255,1); */
   background: #ffffff;
   border-radius:8rpx;
@@ -72,4 +72,8 @@
   margin-right: 0;
   line-height: 100rpx;
   width: auto;
+}
+
+.modal__btns .btn-ok {
+  border-left: 1px solid rgba(229,229,229,.3);
 }

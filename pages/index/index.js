@@ -85,6 +85,7 @@ Page({
    */
   onShow: function() {
     app.registerCpt({ name: 'mask', instance: this.selectComponent('#mask') })
+    app.registerCpt({ name: 'modal', instance: this.selectComponent('#modal') })
     this.showAd() // 显示插屏
     this.setData({ pageShowIsfromShare: false })
     // 创建动画实例
@@ -179,6 +180,93 @@ Page({
       path: `/pages/index/index?token=${app.getToken()}`
     }
   },
+  // 未抽中
+  notGetPrize () {
+    const self = this
+    wx.showModal({
+      content: '恭喜，获得一份免单保险无需付保费，填单即生效',
+      confirmText: '前往领取',
+      confirmColor: '#FF2453',
+      cancelText: '分享次',
+      success(res) {
+        self.setData({
+          lotteryEnd: true,
+        })
+        if (res.confirm) {
+          // 前往领取, 跳转到众安保险小程序
+          self.redirctZhongAnMiniProgram()
+        } else {
+          // 分享
+          // 显示分享小程序
+          self.showShareTabbar()
+        }
+        // 重新获取抽奖次数，奖项，获奖记录
+        self.getLotteryTimes()
+        self.getPrizes()
+        self.getWinPrizeRecords()
+      }
+    })
+  },
+  // 处理未中奖
+  handleNoGetPrize (e) {
+    const type = e.currentTarget.dataset.type
+    this.setData({
+      lotteryEnd: true,
+    })
+    app.modal.hide()
+    if (type === 'ok') {
+      // 前往领取, 跳转到众安保险小程序
+      // this.redirctZhongAnMiniProgram()
+      this.redirctZhongAnH5Page()
+    } else {
+      // 分享
+      // 显示分享小程序
+      this.showShareTabbar()
+    }
+    // 重新获取抽奖次数，奖项，获奖记录
+    this.getLotteryTimes()
+    this.getPrizes()
+    this.getWinPrizeRecords()
+  },
+   // 跳转到众安页面
+  redirctZhongAnH5Page () {
+    wx.navigateTo({
+      url: '/pages/lottery/index',
+    })
+  },
+  // 跳转到众安小程序
+  redirctZhongAnMiniProgram () {
+    const path = 'pages/main/webview/index?' 
+        + 'skipUrl=https%3A%2F%2Fdm.zhongan.com%2Fm%2Frun-app%2Fsars2020%3FactivityCode'
+        + '%3DsarsGiftInsurance%26bizOrigin%3Dwtfy50_za_zy%26fy_version%3Dxcx%26insType%3D2'
+    wx.navigateToMiniProgram({
+      appId: 'wx5ff1b8e8261f39e1',
+      path,
+      success () {
+        app.aldstat.sendEvent('跳入众安小程序', { openId: app.getOpenId() }) // 记录跳到众安小程序
+      }
+    })
+  },
+  // 谢谢参与
+  thanksForParticipation () {
+    wx.showModal({
+      showCancel: false,
+      content: '你离中奖只有一步之遥了\r\n快邀请好友给你助力吧',
+      confirmText: '好的',
+      confirmColor: '#FF2453',
+      success: () => {
+        this.setData({
+          lotteryEnd: true,
+        })
+        // 显示分享小程序
+        this.showShareTabbar()
+        this.getLotteryTimes()
+        this.getPrizes()
+        this.getWinPrizeRecords()
+      }
+    })
+  },
+  // 抽奖结束
   prizeEnd (prizeItem) {
     console.log('=====中奖的条目是', prizeItem)
     // 抽奖结束，重新拉起数据
@@ -186,22 +274,10 @@ Page({
     const self = this
     const amount = prizeItem.amount
     if (amount - 0 === 0 || prizeItem.status === 0) {
-      wx.showModal({
-        showCancel: false,
-        content: '你离中奖只有一步之遥了\r\n快邀请好友给你助力吧',
-        confirmText: '好的',
-        confirmColor: '#FF2453',
-        success () {
-          self.setData({
-            lotteryEnd: true,
-          })
-          // 显示分享小程序
-          self.showShareTabbar()
-          self.getLotteryTimes()
-          self.getPrizes()
-          self.getWinPrizeRecords()
-        }
-      })
+      // // 未抽中, 显示未抽中模态框
+      // app.modal.show()
+      // 谢谢参与
+      this.thanksForParticipation()
     } else {
       wx.showModal({
         content: `恭喜!\r\n获得${prizeItem.amount-0}元快递金`,

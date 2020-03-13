@@ -18,6 +18,25 @@ const pddParamsSign = (params, secret) => {
   return md5(temp.join('')).toUpperCase()
 }
 
+const jdParamsSign = (params, secret) => {
+  if (typeof params !== 'object') {
+    return
+  }
+  // 升序排序
+  const ascOrederedKey = Object.keys(params).sort((a, b) => a.localeCompare(b))
+  const temp = [secret]
+  console.log(ascOrederedKey)
+  for (let key of ascOrederedKey) {
+    temp.push(key)
+    temp.push(params[key])
+  }
+  temp.push(secret)
+  console.log(temp.join(''))
+  // 拼接，使用MD5签名
+  return md5(temp.join('')).toUpperCase()
+}
+
 export {
-  pddParamsSign
+  pddParamsSign,
+  jdParamsSign
 }

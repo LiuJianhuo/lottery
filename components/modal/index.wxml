@@ -6,10 +6,10 @@
     </view>
   </view>
   <view class="modal__btns">
-    <view class="modal__btn btn-cancel" bindtap="cancel">
+    <view class="modal__btn btn-cancel">
       <slot name="cancel"></slot>
     </view>
-    <view class="modal__btn btn-ok" bindtap="ok">
+    <view class="modal__btn btn-ok">
       <slot name="ok"></slot>
     </view>
   </view>

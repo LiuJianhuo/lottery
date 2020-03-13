@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/wx-official-acc/index",
     "pages/test-api/index",
-    "pages/test-animate/index",
-    "pages/goods-pid/index",
     "pages/index/index",
+    "pages/jd-api-test/index",
+    "pages/goods-pid/index",
+    "pages/test-animate/index",
     "pages/goods-theme/index",
     "pages/goods-top-list/index",
     "pages/goods-detail/index",
@@ -46,6 +48,8 @@
   },
   "navigateToMiniProgramAppIdList": [
     "wx553b058aec244b78",
-    "wx32540bd863b27570"
+    "wx32540bd863b27570",
+    "wx5ff1b8e8261f39e1",
+    "wx91d27dbf599dff74"
   ]
 }

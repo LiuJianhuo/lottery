@@ -1,5 +1,6 @@
 // pages/goods-pid/index.js
 import ddk from '../../third-apis/ddk/index.js'
+import jd from '../../third-apis/jd/index.js'
 Page({
 
   /**
@@ -27,7 +28,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    jd.goods.unionOpenGoodsJingfenQuery({
+      eliteId: 1,
+    })
   },
 
   /**
@@ -70,6 +73,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  handleJingdong () {
+    wx.navigateToMiniProgram({
+      appId: 'wx91d27dbf599dff74',
+      path: 'pages/proxy/union/union?spreadUrl=https%3A%2F%2Fu.jd.com%2FaGvcXX'
+    })
   },
   // 商品推广位生成
   handleGoodsPidGenerate () {

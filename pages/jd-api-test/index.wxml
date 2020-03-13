@@ -1,0 +1,3 @@
+<!--pages/jd-api-test/index.js.wxml-->
+<button bindtap="handleUnionOpenGoodsQuery">打开京东</button>
+<view class="line"></view>

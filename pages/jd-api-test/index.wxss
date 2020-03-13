@@ -1,0 +1,7 @@
+/* pages/jd-api-test/index.js.wxss */
+.line {
+  margin: 20rpx 0rpx;
+  background-color: rgb(173, 161, 161);
+  height: 2rpx;
+  width: 100%;
+}

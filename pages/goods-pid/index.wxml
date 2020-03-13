@@ -1,4 +1,6 @@
 <!--pages/goods-pid/index.wxml-->
+<button bindtap="handleJingdong">打开京东</button>
+<view class="line"></view>
 <button bindtap="handleOpenGoodsList">打开商品列表</button>
 <view>
 </view>

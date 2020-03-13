@@ -415,3 +415,13 @@ swiper-item {
   background: linear-gradient(0deg,#fff, #fff);
   margin: 0;
 } 
+
+.modal .content {
+}
+.btn-ok {
+  font-weight: bold;
+  color: #FF2453; 
+}
+.btn-cancel {
+  font-weight: bold;
+}

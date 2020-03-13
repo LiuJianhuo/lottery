@@ -1,0 +1,16 @@
+<!--pages/wx-official-acc/index.wxml-->
+<view class="page">
+    <image class="banner-img" mode="widthFix" src="../../image/leader.gif"></image>
+    <!-- <view class="title-wrap">
+     <text class="title">关注嗡嗡快饷公众号</text>
+     <text>享更多权益</text>
+    </view>
+    <view class="banner-img-wrap">
+      <image class="banner-img" mode="widthFix" src="../../image/leader.gif"></image>
+    </view> -->
+    <button send-message-img="http://zk-bee.oss-cn-hangzhou.aliyuncs.com/mfww/2003/77381456-ed8d-4748-80a6-67cee4332229.jpg" type="primary" size="default" class="c-btn btn-open"  showMessageCard openType="contact" send-message-title="识别获取的二维码，关注公众号">
+        前往关注
+    </button>
+    <view class="tip">点击按钮后,按指导长按二维码关注</view>
+</view>
+

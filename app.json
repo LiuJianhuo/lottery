@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/test-api/index",
     "pages/test-animate/index",
     "pages/goods-pid/index",
     "pages/index/index",
     "pages/goods-theme/index",
-    "pages/test-api/index",
     "pages/goods-top-list/index",
     "pages/goods-detail/index",
     "pages/my-prize/index",

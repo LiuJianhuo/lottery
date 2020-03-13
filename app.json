@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/wx-official-acc/index",
     "pages/test-api/index",
-    "pages/index/index",
     "pages/jd-api-test/index",
     "pages/goods-pid/index",
     "pages/test-animate/index",

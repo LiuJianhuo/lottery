@@ -74,7 +74,7 @@
     <view>可快速获取蜜蜂嗡嗡下载链接</view> -->
     <view></view>
   </view>
-  <button class="btn-cancel" slot="cancel">再等等</button>
+  <button class="btn-cancel" slot="cancel" ontap="handleWait">再等等</button>
   <button open-type="contact" class="btn-ok" slot="ok">前往下载</button>
 </cpt-modal>
 <customer-service></customer-service>

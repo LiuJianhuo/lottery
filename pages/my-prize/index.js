@@ -174,6 +174,15 @@ Page({
       }
     })
   },
+  // 再等等
+  handleWait () {
+    app.mask.hide()
+    app.modal.hide()
+    // this.setData({
+    //   showMask: false,
+    //   showCode: false
+    // })
+  },
   getMyPrizes (status) {
     // status 1 待使用 2 已使用 3 已失效
     console.log('中奖状态'+status)

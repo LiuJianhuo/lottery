@@ -13,8 +13,19 @@ const unionOpenPositionCreate = (params) => {
     }
   })
 }
+// jd.union.open.promotion.bysubunionid.get ( 社交媒体获取推广链接接口【申请】 )
+const unionOpenPromotionBysubunionidGet = (params) => {
+  return jdRequest({
+    method: 'post',
+    apiMethod: 'jd.union.open.promotion.bysubunionid.get',
+    params: {
+      promotionCodeReq: params
+    }
+  })
+}
 
 
 export default {
-  unionOpenPositionCreate
+  unionOpenPositionCreate,
+  unionOpenPromotionBysubunionidGet
 }

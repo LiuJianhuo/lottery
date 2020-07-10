@@ -113,7 +113,7 @@ Page({
   handleGoodsPromotionUrlGenerater () {
     console.group('推广位链接生成')
     const pId = '8508873_126511066'
-    const goodsIdList = `[75722547652]`
+    const goodsIdList = `[8418001789]`
     ddk.goods.goodsPromotionUrlGenerater({
       p_id: pId,
       goods_id_list: goodsIdList,
@@ -179,7 +179,7 @@ Page({
   handleWeappQrcodeUrlGen () {
     const params = {
       p_id: '8508873_126511066',
-      goods_id_list: `[8815386316]`
+      goods_id_list: `[90074129137]`
     }
     console.group('生成单品小程序二维码url')
     ddk.mix.weappQrcodeUrlGen(params).then(res => {

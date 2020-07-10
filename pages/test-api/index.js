@@ -16,7 +16,7 @@ Page({
       page_size: 15,
       sort_type: 0, // 默认排序
       with_coupon: true,
-      keyword: '零食'
+      keyword: '食'
     },
     total: -1,
     pageObj: {

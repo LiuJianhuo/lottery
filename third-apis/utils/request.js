@@ -28,6 +28,8 @@ const PddRequest = ({ baseUrl, cid, secret }) => {
     // md5加密签名
     params.sign = pddParamsSign(params, secret)
     // 参数拼接
+    console.log('params')
+    console.log(params)
     const joinedParamsStr = joinedParams(params)
     console.log(joinedParamsStr)
     return new Promise((resolve, reject) => {
@@ -88,10 +90,19 @@ const JdRequest = ( { baseUrl, appKey, secret }) => {
       format: 'json',
       v
     }
+    console.log('ddd333order')
+    console.log(paramsValueAferOrder)
     realParams['360buy_param_json'] = JSON.stringify({[paramsKey]: paramsValueAferOrder})
     // md5加密签名
     realParams.sign = jdParamsSign(realParams, secret)
+    
+    if (paramsValueAferOrder.couponUrl) {
+      paramsValueAferOrder.couponUrl = encodeURIComponent(paramsValueAferOrder.couponUrl)
+      console.log(paramsValueAferOrder)
+      realParams['360buy_param_json'] = JSON.stringify({[paramsKey]: paramsValueAferOrder})
+    }
     // 参数拼接
+    console.log('ddd')
     const joinedParamsStr = joinedParams(realParams)
     console.log(joinedParamsStr)
     return new Promise((resolve, reject) => {

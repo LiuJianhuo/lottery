@@ -25,7 +25,7 @@ Page({
         })
       })
     } else {
-      const goodsId = 8815386316
+      const goodsId = 115412233
       this.getGoodsDetail({
         goods_id_list: `[${goodsId}]`
       })

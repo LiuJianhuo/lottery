@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/wx-official-acc/index",
     "pages/test-api/index",
+    "pages/goods-detail/index",
     "pages/jd-api-test/index",
     "pages/goods-pid/index",
+    "pages/index/index",
+    "pages/wx-official-acc/index",
     "pages/test-animate/index",
     "pages/goods-theme/index",
     "pages/goods-top-list/index",
-    "pages/goods-detail/index",
     "pages/my-prize/index",
     "pages/login/index",
     "pages/login-mobile/index",
@@ -25,8 +25,8 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "color": "#6B6B6B",
-    "selectedColor": "#FF2453",
+    "color": "#bfbfbf",
+    "selectedColor": "#F42D55",
     "list": [
       {
         "pagePath": "pages/index/index",
